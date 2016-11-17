@@ -36,18 +36,6 @@
     
 
 
-    <!-- http://www.openbase.org/bco/ontology#hasDataUnit -->
-
-    <owl:ObjectProperty rdf:about="http://www.openbase.org/bco/ontology#hasDataUnit">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
-        <rdfs:domain rdf:resource="http://www.openbase.org/bco/ontology#Observation"/>
-        <rdfs:range rdf:resource="http://www.openbase.org/bco/ontology#DataUnit"/>
-        <rdfs:comment>Some states like a temperature state hold a data unit (in this case celsius or fahrenheit).</rdfs:comment>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.openbase.org/bco/ontology#hasProviderService -->
 
     <owl:ObjectProperty rdf:about="http://www.openbase.org/bco/ontology#hasProviderService">
@@ -78,6 +66,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
         <rdfs:domain rdf:resource="http://www.openbase.org/bco/ontology#Observation"/>
+        <rdfs:comment>Via the property the observation instance take a stateValue in a specific timestamp. This StateValue can be discrete (associated via hasStateValue as objectProperty) or consistent (associated via hasStateValue as dataTypeProperty (see implementation).</rdfs:comment>
     </owl:ObjectProperty>
     
 
@@ -131,10 +120,12 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     
 
 
-    <!-- http://www.openbase.org/bco/ontology#hasStateValue -->
+    <!-- http://www.openbase.org/bco/ontology#hasLabel -->
 
-    <owl:DatatypeProperty rdf:about="http://www.openbase.org/bco/ontology#hasStateValue">
-        <rdfs:domain rdf:resource="http://www.openbase.org/bco/ontology#Observation"/>
+    <owl:DatatypeProperty rdf:about="http://www.openbase.org/bco/ontology#hasLabel">
+        <rdfs:domain rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#Name"/>
+        <rdfs:comment>Every Unit has a label. Insignificant for the system, but helpful for the developer.</rdfs:comment>
     </owl:DatatypeProperty>
     
 
@@ -144,7 +135,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <owl:DatatypeProperty rdf:about="http://www.openbase.org/bco/ontology#hasTimeStamp">
         <rdfs:domain rdf:resource="http://www.openbase.org/bco/ontology#Observation"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:comment>The timeStamp as literal.</rdfs:comment>
+        <rdfs:comment>The timeStamp as string.</rdfs:comment>
     </owl:DatatypeProperty>
     
 
@@ -767,21 +758,6 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
         <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Location"/>
         <rdfs:comment>Zones are logical locations with a rough description (e.g. first floor, garden). They cannot include devices directly, but indirectly via the links to their regions.</rdfs:comment>
     </owl:Class>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Annotations
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    <rdf:Description rdf:about="http://www.openbase.org/bco/ontology#hasStateValue">
-        <rdfs:comment>Via the property the observation instance take a stateValue in a specific timestamp.</rdfs:comment>
-        <rdfs:comment>Via the property the observation instance take a data value (e.g. temperature value) in a specific timestamp.</rdfs:comment>
-    </rdf:Description>
     
 
 

@@ -170,7 +170,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#Agent -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#Agent">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#BaseUnit"/>
     </owl:Class>
     
 
@@ -186,7 +186,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#App -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#App">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#HostUnit"/>
         <owl:disjointWith rdf:resource="http://www.openbase.org/bco/ontology#Device"/>
     </owl:Class>
     
@@ -195,7 +195,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#AudioSink -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#AudioSink">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#DalUnit"/>
     </owl:Class>
     
 
@@ -203,7 +203,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#AudioSource -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#AudioSource">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#DalUnit"/>
     </owl:Class>
     
 
@@ -211,6 +211,14 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#AuthorizationGroup -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#AuthorizationGroup">
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#BaseUnit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.openbase.org/bco/ontology#BaseUnit -->
+
+    <owl:Class rdf:about="http://www.openbase.org/bco/ontology#BaseUnit">
         <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
     </owl:Class>
     
@@ -219,7 +227,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#Battery -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#Battery">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#DalUnit"/>
     </owl:Class>
     
 
@@ -243,7 +251,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#BrightnessSensor -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#BrightnessSensor">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#DalUnit"/>
     </owl:Class>
     
 
@@ -259,7 +267,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#Button -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#Button">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#DalUnit"/>
     </owl:Class>
     
 
@@ -283,7 +291,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#ColorableLight -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#ColorableLight">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#DalUnit"/>
     </owl:Class>
     
 
@@ -291,7 +299,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#Connection -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#Connection">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#BaseUnit"/>
         <rdfs:comment>A connection is a spatial relationship between two physical areas, like tiles. Therefore a connection is clearly identifiable. In addition there are different types of connection (door, passage, window).</rdfs:comment>
     </owl:Class>
     
@@ -301,6 +309,14 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#ContactState">
         <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#State"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.openbase.org/bco/ontology#DalUnit -->
+
+    <owl:Class rdf:about="http://www.openbase.org/bco/ontology#DalUnit">
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
     </owl:Class>
     
 
@@ -316,7 +332,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#Device -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#Device">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#HostUnit"/>
     </owl:Class>
     
 
@@ -324,7 +340,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#DimmableLight -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#DimmableLight">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#DalUnit"/>
     </owl:Class>
     
 
@@ -332,7 +348,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#Dimmer -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#Dimmer">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#DalUnit"/>
     </owl:Class>
     
 
@@ -340,7 +356,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#Display -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#Display">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#DalUnit"/>
     </owl:Class>
     
 
@@ -373,7 +389,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#Handle -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#Handle">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#DalUnit"/>
     </owl:Class>
     
 
@@ -382,6 +398,14 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#HandleState">
         <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#State"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.openbase.org/bco/ontology#HostUnit -->
+
+    <owl:Class rdf:about="http://www.openbase.org/bco/ontology#HostUnit">
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#BaseUnit"/>
     </owl:Class>
     
 
@@ -405,7 +429,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#Light -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#Light">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#DalUnit"/>
     </owl:Class>
     
 
@@ -413,7 +437,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#Location -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#Location">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#BaseUnit"/>
         <rdfs:comment>The Location is a unit, which based on a hierarchical structure. Zone, Region and Tile are siblings in this case. The hierarchy is modelled by property links.</rdfs:comment>
     </owl:Class>
     
@@ -422,7 +446,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#Monitor -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#Monitor">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#DalUnit"/>
     </owl:Class>
     
 
@@ -430,7 +454,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#MotionDetector -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#MotionDetector">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#DalUnit"/>
     </owl:Class>
     
 
@@ -471,7 +495,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#PowerConsumptionSensor -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#PowerConsumptionSensor">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#DalUnit"/>
     </owl:Class>
     
 
@@ -495,7 +519,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#PowerSwitch -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#PowerSwitch">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#DalUnit"/>
     </owl:Class>
     
 
@@ -512,7 +536,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#RFID -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#RFID">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#DalUnit"/>
     </owl:Class>
     
 
@@ -528,7 +552,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#ReedContact -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#ReedContact">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#DalUnit"/>
     </owl:Class>
     
 
@@ -545,7 +569,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#RollerShutter -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#RollerShutter">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#DalUnit"/>
     </owl:Class>
     
 
@@ -553,7 +577,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#Scene -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#Scene">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#BaseUnit"/>
     </owl:Class>
     
 
@@ -569,7 +593,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#SmokeDetector -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#SmokeDetector">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#DalUnit"/>
     </owl:Class>
     
 
@@ -609,7 +633,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#Switch -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#Switch">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#DalUnit"/>
     </owl:Class>
     
 
@@ -625,7 +649,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#TamperDetector -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#TamperDetector">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#DalUnit"/>
     </owl:Class>
     
 
@@ -641,7 +665,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#Television -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#Television">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#DalUnit"/>
     </owl:Class>
     
 
@@ -649,7 +673,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#TemperatureController -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#TemperatureController">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#DalUnit"/>
     </owl:Class>
     
 
@@ -657,7 +681,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#TemperatureSensor -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#TemperatureSensor">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#DalUnit"/>
     </owl:Class>
     
 
@@ -690,7 +714,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#UnitGroup -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#UnitGroup">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#BaseUnit"/>
     </owl:Class>
     
 
@@ -698,7 +722,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#User -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#User">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#BaseUnit"/>
     </owl:Class>
     
 
@@ -722,7 +746,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#VideoDepthSource -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#VideoDepthSource">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#DalUnit"/>
     </owl:Class>
     
 
@@ -730,7 +754,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#VideoRGBSource -->
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#VideoRGBSource">
-        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#DalUnit"/>
     </owl:Class>
     
 

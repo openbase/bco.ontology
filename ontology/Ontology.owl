@@ -7,7 +7,7 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://www.openbase.org/bco/ontology">
-        <owl:versionIRI rdf:resource="http://www.openbase.org/bco/ontology/0.2.0"/>
+        <owl:versionIRI rdf:resource="http://www.openbase.org/bco/ontology/0.3.0"/>
         <rdfs:comment>Representation of the Citec Apartment system (TBox only). Including all units and their features.</rdfs:comment>
     </owl:Ontology>
     
@@ -326,14 +326,6 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#DalUnit">
         <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.openbase.org/bco/ontology#DataUnit -->
-
-    <owl:Class rdf:about="http://www.openbase.org/bco/ontology#DataUnit">
-        <rdfs:comment>A DataUnit is a unit which describes the data value in physical way (like temperature in celsius or fahrenheit). Not only International System of Units.</rdfs:comment>
     </owl:Class>
     
 

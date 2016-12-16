@@ -16,6 +16,53 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.openbase.org/bco/ontology#Ampere -->
+
+    <rdfs:Datatype rdf:about="http://www.openbase.org/bco/ontology#Ampere"/>
+    
+
+
+    <!-- http://www.openbase.org/bco/ontology#Celsius -->
+
+    <rdfs:Datatype rdf:about="http://www.openbase.org/bco/ontology#Celsius"/>
+    
+
+
+    <!-- http://www.openbase.org/bco/ontology#Lux -->
+
+    <rdfs:Datatype rdf:about="http://www.openbase.org/bco/ontology#Lux"/>
+    
+
+
+    <!-- http://www.openbase.org/bco/ontology#Percent -->
+
+    <rdfs:Datatype rdf:about="http://www.openbase.org/bco/ontology#Percent"/>
+    
+
+
+    <!-- http://www.openbase.org/bco/ontology#Voltage -->
+
+    <rdfs:Datatype rdf:about="http://www.openbase.org/bco/ontology#Voltage"/>
+    
+
+
+    <!-- http://www.openbase.org/bco/ontology#Watt -->
+
+    <rdfs:Datatype rdf:about="http://www.openbase.org/bco/ontology#Watt"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Object Properties
     //
     ///////////////////////////////////////////////////////////////////////////////////////

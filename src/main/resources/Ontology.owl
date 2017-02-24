@@ -30,9 +30,21 @@
     
 
 
+    <!-- http://www.openbase.org/bco/ontology#Brightness -->
+
+    <rdfs:Datatype rdf:about="http://www.openbase.org/bco/ontology#Brightness"/>
+    
+
+
     <!-- http://www.openbase.org/bco/ontology#Celsius -->
 
     <rdfs:Datatype rdf:about="http://www.openbase.org/bco/ontology#Celsius"/>
+    
+
+
+    <!-- http://www.openbase.org/bco/ontology#Hue -->
+
+    <rdfs:Datatype rdf:about="http://www.openbase.org/bco/ontology#Hue"/>
     
 
 
@@ -45,6 +57,12 @@
     <!-- http://www.openbase.org/bco/ontology#Percent -->
 
     <rdfs:Datatype rdf:about="http://www.openbase.org/bco/ontology#Percent"/>
+    
+
+
+    <!-- http://www.openbase.org/bco/ontology#Saturation -->
+
+    <rdfs:Datatype rdf:about="http://www.openbase.org/bco/ontology#Saturation"/>
     
 
 

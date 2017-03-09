@@ -42,6 +42,12 @@
     
 
 
+    <!-- http://www.openbase.org/bco/ontology#CurrentActivity -->
+
+    <rdfs:Datatype rdf:about="http://www.openbase.org/bco/ontology#CurrentActivity"/>
+    
+
+
     <!-- http://www.openbase.org/bco/ontology#Hue -->
 
     <rdfs:Datatype rdf:about="http://www.openbase.org/bco/ontology#Hue"/>
@@ -51,6 +57,12 @@
     <!-- http://www.openbase.org/bco/ontology#Lux -->
 
     <rdfs:Datatype rdf:about="http://www.openbase.org/bco/ontology#Lux"/>
+    
+
+
+    <!-- http://www.openbase.org/bco/ontology#NextActivity -->
+
+    <rdfs:Datatype rdf:about="http://www.openbase.org/bco/ontology#NextActivity"/>
     
 
 
@@ -78,6 +90,12 @@
     
 
 
+    <!-- http://www.openbase.org/bco/ontology#WattHour -->
+
+    <rdfs:Datatype rdf:about="http://www.openbase.org/bco/ontology#WattHour"/>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -97,6 +115,17 @@
         <rdfs:domain rdf:resource="http://www.openbase.org/bco/ontology#Tile"/>
         <rdfs:range rdf:resource="http://www.openbase.org/bco/ontology#Connection"/>
         <rdfs:comment>The property defines, which connection element is part of which tile.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.openbase.org/bco/ontology#hasConnectionPhase -->
+
+    <owl:ObjectProperty rdf:about="http://www.openbase.org/bco/ontology#hasConnectionPhase">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
+        <rdfs:range rdf:resource="http://www.openbase.org/bco/ontology#ConnectionPhase"/>
     </owl:ObjectProperty>
     
 
@@ -185,6 +214,15 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     
 
 
+    <!-- http://www.openbase.org/bco/ontology#hasFirstConnection -->
+
+    <owl:DatatypeProperty rdf:about="http://www.openbase.org/bco/ontology#hasFirstConnection">
+        <rdfs:domain rdf:resource="http://www.openbase.org/bco/ontology#ConnectionPhase"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.openbase.org/bco/ontology#hasFirstHeartBeat -->
 
     <owl:DatatypeProperty rdf:about="http://www.openbase.org/bco/ontology#hasFirstHeartBeat">
@@ -204,6 +242,15 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     
 
 
+    <!-- http://www.openbase.org/bco/ontology#hasLastConnection -->
+
+    <owl:DatatypeProperty rdf:about="http://www.openbase.org/bco/ontology#hasLastConnection">
+        <rdfs:domain rdf:resource="http://www.openbase.org/bco/ontology#ConnectionPhase"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.openbase.org/bco/ontology#hasLastHeartBeat -->
 
     <owl:DatatypeProperty rdf:about="http://www.openbase.org/bco/ontology#hasLastHeartBeat">
@@ -219,15 +266,6 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
         <rdfs:domain rdf:resource="http://www.openbase.org/bco/ontology#Observation"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
         <rdfs:comment>The timeStamp as string.</rdfs:comment>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://www.openbase.org/bco/ontology#isConnected -->
-
-    <owl:DatatypeProperty rdf:about="http://www.openbase.org/bco/ontology#isConnected">
-        <rdfs:domain rdf:resource="http://www.openbase.org/bco/ontology#Unit"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
     </owl:DatatypeProperty>
     
 
@@ -403,6 +441,12 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
         <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#BaseUnit"/>
         <rdfs:comment>A connection is a spatial relationship between two physical areas, like tiles. Therefore a connection is clearly identifiable. In addition there are different types of connection (door, passage, window).</rdfs:comment>
     </owl:Class>
+    
+
+
+    <!-- http://www.openbase.org/bco/ontology#ConnectionPhase -->
+
+    <owl:Class rdf:about="http://www.openbase.org/bco/ontology#ConnectionPhase"/>
     
 
 

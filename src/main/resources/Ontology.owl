@@ -24,6 +24,12 @@
     
 
 
+    <!-- http://www.openbase.org/bco/ontology#Ampere -->
+
+    <rdfs:Datatype rdf:about="http://www.openbase.org/bco/ontology#Ampere"/>
+    
+
+
     <!-- http://www.openbase.org/bco/ontology#Brightness -->
 
     <rdfs:Datatype rdf:about="http://www.openbase.org/bco/ontology#Brightness"/>
@@ -81,12 +87,6 @@
     <!-- http://www.openbase.org/bco/ontology#Watt -->
 
     <rdfs:Datatype rdf:about="http://www.openbase.org/bco/ontology#Watt"/>
-    
-
-
-    <!-- http://www.openbase.org/bco/ontology#WattHour -->
-
-    <rdfs:Datatype rdf:about="http://www.openbase.org/bco/ontology#WattHour"/>
     
 
 

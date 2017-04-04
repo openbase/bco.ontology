@@ -71,14 +71,6 @@
                     <showDeprecation>true</showDeprecation>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.5.0</version>
-                <configuration>
-                    <executable>java</executable>
-                </configuration>
-            </plugin>
             <!-- Generate PMD warnings on the command line during compilation -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

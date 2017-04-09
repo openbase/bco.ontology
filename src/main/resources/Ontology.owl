@@ -53,18 +53,9 @@
     
 
 
-    <!-- http://www.w3.org/2007/ont/o2#chain -->
-
-    <owl:AnnotationProperty rdf:about="http://www.w3.org/2007/ont/o2#chain"/>
-    
-
-
     <!-- http://www.w3.org/2007/ont/unit#product -->
 
-    <owl:AnnotationProperty rdf:about="http://www.w3.org/2007/ont/unit#product">
-        <rdfs:comment>The product of units of measure and numbers.</rdfs:comment>
-        <rdfs:label>product</rdfs:label>
-    </owl:AnnotationProperty>
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2007/ont/unit#product"/>
     
 
 
@@ -292,6 +283,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
 
     <owl:DatatypeProperty rdf:about="http://www.openbase.org/bco/ontology#hasActivityTime">
         <rdfs:subPropertyOf rdf:resource="http://www.openbase.org/bco/ontology#hasAggregation"/>
+        <rdfs:domain rdf:resource="http://www.openbase.org/bco/ontology#AggregationObservation"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
     </owl:DatatypeProperty>
     
@@ -337,6 +329,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
 
     <owl:DatatypeProperty rdf:about="http://www.openbase.org/bco/ontology#hasMean">
         <rdfs:subPropertyOf rdf:resource="http://www.openbase.org/bco/ontology#hasAggregation"/>
+        <rdfs:domain rdf:resource="http://www.openbase.org/bco/ontology#AggregationObservation"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
     </owl:DatatypeProperty>
     
@@ -346,6 +339,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
 
     <owl:DatatypeProperty rdf:about="http://www.openbase.org/bco/ontology#hasQuantity">
         <rdfs:subPropertyOf rdf:resource="http://www.openbase.org/bco/ontology#hasAggregation"/>
+        <rdfs:domain rdf:resource="http://www.openbase.org/bco/ontology#AggregationObservation"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
     </owl:DatatypeProperty>
     
@@ -355,6 +349,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
 
     <owl:DatatypeProperty rdf:about="http://www.openbase.org/bco/ontology#hasStandardDeviation">
         <rdfs:subPropertyOf rdf:resource="http://www.openbase.org/bco/ontology#hasAggregation"/>
+        <rdfs:domain rdf:resource="http://www.openbase.org/bco/ontology#AggregationObservation"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
     </owl:DatatypeProperty>
     
@@ -369,6 +364,8 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <!-- http://www.openbase.org/bco/ontology#hasTimeStamp -->
 
     <owl:DatatypeProperty rdf:about="http://www.openbase.org/bco/ontology#hasTimeStamp">
+        <rdfs:subPropertyOf rdf:resource="http://www.openbase.org/bco/ontology#hasAggregation"/>
+        <rdfs:domain rdf:resource="http://www.openbase.org/bco/ontology#AggregationObservation"/>
         <rdfs:domain rdf:resource="http://www.openbase.org/bco/ontology#Observation"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
         <rdfs:comment>The timeStamp as string.</rdfs:comment>
@@ -380,6 +377,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
 
     <owl:DatatypeProperty rdf:about="http://www.openbase.org/bco/ontology#hasTimeWeighting">
         <rdfs:subPropertyOf rdf:resource="http://www.openbase.org/bco/ontology#hasAggregation"/>
+        <rdfs:domain rdf:resource="http://www.openbase.org/bco/ontology#AggregationObservation"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
     </owl:DatatypeProperty>
     
@@ -389,6 +387,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
 
     <owl:DatatypeProperty rdf:about="http://www.openbase.org/bco/ontology#hasVariance">
         <rdfs:subPropertyOf rdf:resource="http://www.openbase.org/bco/ontology#hasAggregation"/>
+        <rdfs:domain rdf:resource="http://www.openbase.org/bco/ontology#AggregationObservation"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
     </owl:DatatypeProperty>
     
@@ -1122,27 +1121,7 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
     <owl:NamedIndividual rdf:about="http://www.openbase.org/bco/ontology#year">
         <rdf:type rdf:resource="http://www.openbase.org/bco/ontology#Period"/>
     </owl:NamedIndividual>
-    <rdf:Description>
-        <unit:product rdf:resource="http://www.w3.org/2007/ont/unit#inch"/>
-    </rdf:Description>
-    <rdf:Description>
-        <unit:product rdf:resource="http://www.w3.org/2007/ont/unit#foot"/>
-    </rdf:Description>
-    <rdf:Description>
-        <unit:product rdf:resource="http://www.w3.org/2007/ont/unit#mile"/>
-    </rdf:Description>
-    <rdf:Description>
-        <unit:product rdf:resource="http://www.w3.org/2007/ont/unit#hectare"/>
-    </rdf:Description>
-    <rdf:Description>
-        <unit:product rdf:resource="http://www.w3.org/2007/ont/unit#yard"/>
-    </rdf:Description>
-    <rdf:Description>
-        <unit:product rdf:resource="http://www.w3.org/2007/ont/unit#furlong"/>
-    </rdf:Description>
-    <rdf:Description>
-        <unit:product rdf:resource="http://www.w3.org/2007/ont/unit#chain"/>
-    </rdf:Description>
+   
     
 
 
@@ -1156,29 +1135,6 @@ Zones have regions and regions can be located in multiple tiles (regions can ove
 
     <rdf:Description rdf:about="http://www.openbase.org/bco/ontology#hasStateValue">
         <rdfs:comment>Via the property the observation instance take a stateValue in a specific timestamp. This StateValue can be discrete (associated via hasStateValue as objectProperty) or consistent (associated via hasStateValue as dataTypeProperty (see implementation).</rdfs:comment>
-    </rdf:Description>
-    <rdf:Description rdf:about="https://www.w3.org/2007/ont/unit">
-        <rdfs:comment>Units of Measure.
-    
-    This ontology defines a set of properties which may be used
-    for reprenting physical quantities.   Each is an RDF Property
-    which realtes a quantity to a number which expreses the quantity in 
-    that expressed that quntity in the given unit.
-    
-        :bed     ex:length   _:a.
-        _a:     m   2.
-        
-    Property chaining is the equivalent of unit multiplication.
-    Inverse properties correspond to reciprocal units.
-    Because conventional signs for units are very case-sensitive, this
-    ontology breaks from the normal convention that all property localnames
-    begin with lowercase.
-    See also http://www-ksl.stanford.edu/knowledge-sharing/papers/engmath.html
-    </rdfs:comment>
-        <doc:creator rdf:resource="http://www.w3.org/People/Berners-Lee/card#i"/>
-        <ns:licence rdf:resource="http://www.w3.org/2000/10/swap/LICENSE.n3"/>
-        <doc:version>$Id: unit.rdf,v 1.2 2007/07/31 23:06:23 timbl Exp $</doc:version>
-        <dc:title>An Ontology for Units of Measure</dc:title>
     </rdf:Description>
     
 

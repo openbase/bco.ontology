@@ -54,9 +54,9 @@
     <packaging>jar</packaging>
     
     <scm>
-        <connection>scm:git:git@github.com/openbase/ontology.git</connection>
-        <developerConnection>scm:git:git@github.com/openbase/ontology.git</developerConnection>
-        <url>git@github.com/openbase/ontology.git</url>
+        <connection>scm:git:https://github.com/openbase/bco.ontology.git</connection>
+        <developerConnection>scm:git:https://github.com/openbase/bco.ontology.git</developerConnection>
+        <url>https://github.com/openbase/bco.ontology.git</url>
     </scm>
 
     <build>

@@ -328,6 +328,7 @@
 
     <owl:DatatypeProperty rdf:about="http://www.openbase.org/bco/ontology#hasTimeStamp">
         <rdfs:domain rdf:resource="http://www.openbase.org/bco/ontology#AggregationObservation"/>
+        <rdfs:domain rdf:resource="http://www.openbase.org/bco/ontology#AggregationTimeFrame"/>
         <rdfs:domain rdf:resource="http://www.openbase.org/bco/ontology#Observation"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
         <rdfs:comment>The property describes the timestamp. Each state value has a timestamp.</rdfs:comment>
@@ -390,6 +391,15 @@
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#AggregationObservation">
         <rdfs:comment>The aggregationObservation contains the aggregated data of the observation class for a specific period. The aggregated data are statistical values.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.openbase.org/bco/ontology#AggregationTimeFrame -->
+
+    <owl:Class rdf:about="http://www.openbase.org/bco/ontology#AggregationTimeFrame">
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#ControlInformation"/>
+        <rdfs:comment>Describes the time frame of the aggregation. Software uses the information to manage temporry aspects and calculation of some kind of statistical values.</rdfs:comment>
     </owl:Class>
     
 
@@ -481,6 +491,15 @@
 
     <owl:Class rdf:about="http://www.openbase.org/bco/ontology#ConnectionPhase">
         <rdfs:comment>The connection state between unit and BCO-platform is described by connectionPhase instances. Each instance represents the connection state as phase with start and end timestamp.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.openbase.org/bco/ontology#ControlInformation -->
+
+    <owl:Class rdf:about="http://www.openbase.org/bco/ontology#ControlInformation">
+        <rdfs:subClassOf rdf:resource="http://www.openbase.org/bco/ontology#AggregationObservation"/>
+        <rdfs:comment>Contains information about the aggregation process to provide software management.</rdfs:comment>
     </owl:Class>
     
 
@@ -831,6 +850,24 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://www.openbase.org/bco/ontology#dateTimeFrom -->
+
+    <owl:NamedIndividual rdf:about="http://www.openbase.org/bco/ontology#dateTimeFrom">
+        <rdf:type rdf:resource="http://www.openbase.org/bco/ontology#AggregationTimeFrame"/>
+        <rdfs:comment>The individual describes the beginning of the aggregation time frame. No triple with an explicit timestamp means, there was no full aggregation so far.</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.openbase.org/bco/ontology#dateTimeUntil -->
+
+    <owl:NamedIndividual rdf:about="http://www.openbase.org/bco/ontology#dateTimeUntil">
+        <rdf:type rdf:resource="http://www.openbase.org/bco/ontology#AggregationTimeFrame"/>
+        <rdfs:comment>The individual describes the ending of the aggregation time frame. No triple with an explicit timestamp means, there was no full aggregation so far.</rdfs:comment>
+    </owl:NamedIndividual>
     
 
 

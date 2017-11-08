@@ -3,3 +3,9 @@
 **/*/target
 /target
 **/*/nbactions.xml
+
+### IDE ###
+.idea/
+
+### Protege ###
+ontology.iml

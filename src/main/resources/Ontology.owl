@@ -8,7 +8,7 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://www.openbase.org/bco/ontology">
-        <owl:versionIRI rdf:resource="http://www.openbase.org/bco/ontology/1.4.0"/>
+        <owl:versionIRI rdf:resource="http://www.openbase.org/bco/ontology/1.5.0"/>
         <rdfs:comment>The BCO-Ontology represents the configuration and status data of the sensors and actuators from the Smart Home platform BaseCubeOne (BCO). In this case, mainly the TBox (classes and properties) is modeled. The ABox (instances and relations) is added by the synchronization software.</rdfs:comment>
     </owl:Ontology>
     
@@ -22,6 +22,12 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://www.openbase.org/bco/ontology#ActivityId -->
+
+    <rdfs:Datatype rdf:about="http://www.openbase.org/bco/ontology#ActivityId"/>
     
 
 
@@ -43,12 +49,6 @@
     
 
 
-    <!-- http://www.openbase.org/bco/ontology#CurrentActivity -->
-
-    <rdfs:Datatype rdf:about="http://www.openbase.org/bco/ontology#CurrentActivity"/>
-    
-
-
     <!-- http://www.openbase.org/bco/ontology#Hue -->
 
     <rdfs:Datatype rdf:about="http://www.openbase.org/bco/ontology#Hue"/>
@@ -58,12 +58,6 @@
     <!-- http://www.openbase.org/bco/ontology#Lux -->
 
     <rdfs:Datatype rdf:about="http://www.openbase.org/bco/ontology#Lux"/>
-    
-
-
-    <!-- http://www.openbase.org/bco/ontology#NextActivity -->
-
-    <rdfs:Datatype rdf:about="http://www.openbase.org/bco/ontology#NextActivity"/>
     
 
 

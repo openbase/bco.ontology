@@ -2,47 +2,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.openbase.bco</groupId>
-    <artifactId>ontology.lib</artifactId>
-    <version>1.6-SNAPSHOT</version>
+    <groupId>org.openbase</groupId>
+    <artifactId>bco.ontology.lib</artifactId>
+    <packaging>jar</packaging>
     
     <name>BCO Ontology Library</name>
-    <inceptionYear>2016</inceptionYear>
-    <description>BaseCubeOne Ontology Library</description>
 
-    <url>https://github.com/openbase/ontology.lib.git/wiki</url>
+    <parent>
+        <groupId>org.openbase</groupId>
+        <artifactId>bco.ontology</artifactId>
+        <version>2.0-SNAPSHOT</version>
+    </parent>
 
-    <organization>
-        <name>openbase.org</name>
-        <url>https://github.com/openbase</url>
-    </organization>
-
-    <developers>
-        <developer>
-            <id>agatting</id>
-            <name>Andreas Gatting</name>
-            <email>agatting@techfak.uni-bielefeld.de</email>
-            <url>https://github.com/agatting</url>
-            <organization>openbase.org</organization>
-            <organizationUrl>https://github.com/openbase</organizationUrl>
-            <roles>
-                <role>developer</role>
-            </roles>
-            <timezone>+1</timezone>
-        </developer>
-        <developer>
-            <id>DivineThreepwood</id>
-            <name>Marian Pohling</name>
-            <email>divine@openbase.org</email>
-            <url>https://github.com/DivineThreepwood</url>
-            <organization>openbase.org</organization>
-            <organizationUrl>https://github.com/openbase</organizationUrl>
-            <roles>
-                <role>architect</role>
-            </roles>
-            <timezone>+1</timezone>
-        </developer>
-    </developers>
+    <url>https://github.com/openbase/ontology.git/wiki</url>
 
     <licenses>
         <license>
@@ -50,27 +22,37 @@
             <url>http://www.gnu.org/licenses/lgpl.html</url>
         </license>
     </licenses>
-    
-    <packaging>jar</packaging>
-    
-    <scm>
-        <connection>scm:git:https://github.com/openbase/bco.ontology.lib.git</connection>
-        <developerConnection>scm:git:https://github.com/openbase/bco.ontology.lib.git</developerConnection>
-        <url>https://github.com/openbase/bco.ontology.lib.git</url>
-    </scm>
 
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.6.1</version>
+                <version>2.3.2</version>
+                
                 <configuration>
-                    <source>${source.java.version}</source>
-                    <target>${target.java.version}</target>
-                    <showDeprecation>true</showDeprecation>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <version>${dependency.org.codehaus.mojo.license-maven-plugin.version}</version>
+                <configuration>
+                    <licenseName>lgpl_v3</licenseName>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>first</id>
+                        <goals>
+                            <goal>update-file-header</goal>
+                        </goals>
+                        <phase>process-sources</phase>
+                    </execution>
+                </executions>
+            </plugin>
+
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
@@ -152,17 +134,6 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>2.5.3</version>
-                <configuration>
-                    <autoVersionSubmodules>true</autoVersionSubmodules>
-                    <useReleaseProfile>true</useReleaseProfile>
-                    <releaseProfiles>release</releaseProfiles>
-                    <goals>deploy</goals>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>2.6</version>
                 <configuration>
@@ -193,96 +164,12 @@
         </plugins>
     </build>
 
-    <profiles>
-        <profile>
-            <id>deploy</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                        <version>3.0.1</version>
-                        <executions>
-                            <execution>
-                                <id>attach-sources</id>
-                                <goals>
-                                    <goal>jar-no-fork</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>3.0.0</version>
-                        <executions>
-                            <execution>
-                                <id>attach-javadocs</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.6</version>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>sonatype</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.sonatype.plugins</groupId>
-                        <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.6.7</version>
-                        <extensions>true</extensions>
-                        <configuration>
-                            <serverId>ossrh</serverId>
-                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
-
     <pluginRepositories>
         <pluginRepository>
             <id>onejar-maven-plugin.googlecode.com</id>
             <url>http://onejar-maven-plugin.googlecode.com/svn/mavenrepo</url>
         </pluginRepository>
     </pluginRepositories>
-
-    <properties>
-        <skipTests>false</skipTests>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <test.configs>${project.basedir}/target/generated-test-config</test.configs>
-        <target.java.version>1.8</target.java.version>
-        <source.java.version>1.8</source.java.version>
-        <plugin.checkstyle.version>2.15</plugin.checkstyle.version>
-        <plugin.pmd.version>3.5</plugin.pmd.version>
-        <plugin.javadoc.version>3.0.0</plugin.javadoc.version>
-        <failOnStyleError>false</failOnStyleError>
-        <dependency.bco.version>1.6-SNAPSHOT</dependency.bco.version>
-        <dependency.jul.version>${dependency.bco.version}</dependency.jul.version>
-        <dependency.bco.dal.version>${dependency.bco.version}</dependency.bco.dal.version>
-        <dependency.bco.ontology.version>${dependency.bco.version}</dependency.bco.ontology.version>
-    </properties>
 
     <dependencies>
         <dependency>
@@ -318,9 +205,9 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.openbase.bco</groupId>
-            <artifactId>ontology</artifactId>
-            <version>${dependency.bco.ontology.version}</version>
+            <groupId>org.openbase</groupId>
+            <artifactId>bco.ontology</artifactId>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.commons</groupId>

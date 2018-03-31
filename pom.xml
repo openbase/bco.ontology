@@ -190,11 +190,16 @@
     <properties>
         <skipTests>false</skipTests>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <source.java.version>1.8</source.java.version>
-        <target.java.version>1.8</target.java.version>
-        <maven.compiler.source>${source.java.version}</maven.compiler.source>
-        <maven.compiler.target>${target.java.version}</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <test.configs>${project.basedir}/target/generated-test-config</test.configs>
+        <plugin.checkstyle.version>2.15</plugin.checkstyle.version>
+        <plugin.pmd.version>3.5</plugin.pmd.version>
+        <failOnStyleError>false</failOnStyleError>
         <dependency.org.codehaus.mojo.license-maven-plugin.version>1.10</dependency.org.codehaus.mojo.license-maven-plugin.version>
+        <dependency.jul.version>${dependency.bco.version}</dependency.jul.version>
+        <dependency.bco.version>1.6-SNAPSHOT</dependency.bco.version>
+        <dependency.bco.dal.version>${dependency.bco.version}</dependency.bco.dal.version>
     </properties>
 
     <distributionManagement>

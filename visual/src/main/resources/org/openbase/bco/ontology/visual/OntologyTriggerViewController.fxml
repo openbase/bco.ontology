@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="39.0" prefWidth="984.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openbase.bco.ontology.lib.view.OntologyTriggerViewController">
+   <children>
+      <HBox prefHeight="33.0" prefWidth="984.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
+         <children>
+            <Pane fx:id="triggerStateColorPane" prefHeight="46.0" prefWidth="256.0" style="-fx-background-color: red; -fx-border-color: black;">
+               <children>
+                  <Label fx:id="triggerStateLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="-1.0" layoutY="5.0" prefHeight="33.0" prefWidth="183.0" text="Label">
+                     <font>
+                        <Font name="System Bold" size="19.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <TextArea fx:id="triggerDescription" prefHeight="100.0" prefWidth="862.0" style="-fx-border-color: black;">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></TextArea>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

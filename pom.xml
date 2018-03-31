@@ -2,13 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.openbase.bco</groupId>
-    <artifactId>ontology</artifactId>
-    <version>1.6-SNAPSHOT</version>
+    <groupId>org.openbase</groupId>
+    <artifactId>bco.ontology</artifactId>
+    <version>2.0-SNAPSHOT</version>
     
     <name>BCO Ontology</name>
     <inceptionYear>2016</inceptionYear>
-    <description>BaseCubeOne Ontology</description>
+    <description>BaseCubeOne Ontology Project</description>
 
     <url>https://github.com/openbase/ontology.git/wiki</url>
 
@@ -49,9 +49,13 @@
             <name>LGPLv3</name>
             <url>http://www.gnu.org/licenses/lgpl.html</url>
         </license>
+        <license>
+            <name>GPLv3</name>
+            <url>http://www.gnu.org/licenses/gpl.html</url>
+        </license>
     </licenses>
     
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
     
     <scm>
         <connection>scm:git:https://github.com/openbase/bco.ontology.git</connection>
@@ -62,16 +66,30 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>license-maven-plugin</artifactId>
+                <version>${dependency.org.codehaus.mojo.license-maven-plugin.version}</version>
                 <configuration>
-                    <source>${source.java.version}</source>
-                    <target>${target.java.version}</target>
-                    <showDeprecation>true</showDeprecation>
+                    <verbose>false</verbose>
+                    <failOnMissingHeader>true</failOnMissingHeader>
+                    <failOnNotUptodateHeader>true</failOnNotUptodateHeader>
+                    <canUpdateCopyright>true</canUpdateCopyright>
+                    <canUpdateDescription>true</canUpdateDescription>
+                    <canUpdateLicense>true</canUpdateLicense>
+                    <roots>
+                        <root>src/main/java</root>
+                        <root>src/test</root>
+                    </roots>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>download-licenses</id>
+                        <goals>
+                            <goal>download-licenses</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
-            <!-- Generate PMD warnings on the command line during compilation -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
@@ -79,8 +97,17 @@
                 <configuration>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
                     <useReleaseProfile>true</useReleaseProfile>
-                    <releaseProfiles>release</releaseProfiles>
+                    <releaseProfiles>deploy</releaseProfiles>
                     <goals>deploy</goals>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
+                <configuration>
+                    <!-- Travis build workaround -->
+                    <argLine>-Xms1024m -Xmx2048m</argLine>
                 </configuration>
             </plugin>
         </plugins>
@@ -94,12 +121,25 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
-                        <version>3.0.0</version>
+                        <version>3.0.1</version>
                         <executions>
                             <execution>
                                 <id>attach-sources</id>
                                 <goals>
                                     <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>2.10.4</version>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
                                 </goals>
                             </execution>
                         </executions>
@@ -141,14 +181,21 @@
         </profile>
     </profiles>
 
+    <modules>
+        <module>owl</module>
+        <module>lib</module>
+        <module>visual</module>
+    </modules>
+
     <properties>
-        <skipTests>true</skipTests>
+        <skipTests>false</skipTests>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <target.java.version>1.8</target.java.version>
         <source.java.version>1.8</source.java.version>
+        <target.java.version>1.8</target.java.version>
+        <maven.compiler.source>${source.java.version}</maven.compiler.source>
+        <maven.compiler.target>${target.java.version}</maven.compiler.target>
+        <dependency.org.codehaus.mojo.license-maven-plugin.version>1.10</dependency.org.codehaus.mojo.license-maven-plugin.version>
     </properties>
-
-
 
     <distributionManagement>
         <snapshotRepository>

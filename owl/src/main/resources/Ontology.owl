@@ -9,7 +9,7 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://www.openbase.org/bco/ontology">
         <owl:versionIRI rdf:resource="http://www.openbase.org/bco/ontology/1.5.0"/>
-        <rdfs:comment>The BCO-Ontology represents the configuration and status data of the sensors and actuators from the Smart Home platform BaseCubeOne (BCO). In this case, mainly the TBox (classes and properties) is modeled. The ABox (instances and relations) is added by the synchronization software.</rdfs:comment>
+        <rdfs:comment>The BCO-Ontology represents the configuration and status data of the sensors and actuators from the Smart Home platform BaseCubeOne (BCO). In this case, mainly the TBox (classes and properties) is modeled. The ABox (instances and relations) is added and synchronized by the bco ontology manager.</rdfs:comment>
     </owl:Ontology>
     
 

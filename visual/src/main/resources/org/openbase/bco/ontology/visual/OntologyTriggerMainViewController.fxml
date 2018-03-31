@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="96.0" prefWidth="981.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openbase.bco.ontology.lib.view.OntologyTriggerMainViewController">
+   <children>
+      <ScrollPane prefHeight="328.0" prefWidth="1002.0">
+         <content>
+            <VBox fx:id="mainPane" prefHeight="681.0" prefWidth="981.0" />
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

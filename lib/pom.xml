@@ -206,7 +206,7 @@
         </dependency>
         <dependency>
             <groupId>org.openbase</groupId>
-            <artifactId>bco.ontology</artifactId>
+            <artifactId>bco.ontology.owl</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

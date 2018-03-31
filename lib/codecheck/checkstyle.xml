@@ -131,10 +131,6 @@
     <property name="format" value="\s+$"/>
     <property name="message" value="Line has trailing spaces."/>
   </module>
-  <module name="Header">
-    <property name="headerFile" value="${config_loc}/header.txt"/>
-    <property name="ignoreLines" value="6"/>
-  </module>
   <module name="RegexpMultiline">
     <property name="format" value="\r\n"/>
     <property name="message" value="Line ends with a windows line ending. Unix style must be used."/>

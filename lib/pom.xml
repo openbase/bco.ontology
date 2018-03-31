@@ -114,7 +114,7 @@
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>${plugin.pmd.version}</version>
                 <configuration>
-                    <targetJdk>${target.java.version}</targetJdk>
+                    <targetJdk>${maven.compiler.target}</targetJdk>
                     <rulesets>
                         <ruleset>${project.basedir}/codecheck/pmd-rules.xml</ruleset>
                     </rulesets>
@@ -286,7 +286,7 @@
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>${plugin.pmd.version}</version>
                 <configuration>
-                    <targetJdk>${target.java.version}</targetJdk>
+                    <targetJdk>${maven.compiler.target}</targetJdk>
                     <rulesets>
                         <ruleset>${project.basedir}/codecheck/pmd-rules.xml</ruleset>
                     </rulesets>

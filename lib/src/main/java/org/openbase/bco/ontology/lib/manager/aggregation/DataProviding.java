@@ -1,4 +1,3 @@
-/**
 package org.openbase.bco.ontology.lib.manager.aggregation;
 
 /*-

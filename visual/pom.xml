@@ -55,4 +55,17 @@
         </plugins>
     </build>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.openbase</groupId>
+            <artifactId>jul.visual.javafx</artifactId>
+            <version>1.6-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openbase</groupId>
+            <artifactId>bco.ontology.lib</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
 </project>

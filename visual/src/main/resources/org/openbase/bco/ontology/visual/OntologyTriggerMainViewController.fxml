@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="96.0" prefWidth="981.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openbase.bco.ontology.lib.view.OntologyTriggerMainViewController">
+<AnchorPane prefHeight="96.0" prefWidth="981.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openbase.bco.ontology.visual.OntologyTriggerMainViewController">
    <children>
       <ScrollPane prefHeight="328.0" prefWidth="1002.0">
          <content>

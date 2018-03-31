@@ -1,4 +1,4 @@
-package org.openbase.bco.ontology.lib.view;
+package org.openbase.bco.ontology.visual;
 
 /*-
  * #%L
@@ -40,13 +40,9 @@ public class OntologyTriggerMainViewController extends AbstractFXController {
     public void initContent() {
         try {
             for (QueryExample example : QueryExample.values()) {
-                Pair<Pane, OntologyTriggerViewController> paneOntologyTriggerViewControllerPair = FXMLProcessor.loadFxmlPaneAndControllerPair("/org/openbase/sandbox/fx/OntologyTriggerViewController.fxml", OntologyTriggerViewController.class, getClass());
+                Pair<Pane, OntologyTriggerViewController> paneOntologyTriggerViewControllerPair = FXMLProcessor.loadFxmlPaneAndControllerPair("org/openbase/bco/ontology/visual/OntologyTriggerViewController.fxml", OntologyTriggerViewController.class, getClass());
 
-                // mockup
-//                final OntologyChange ontologyChange = OntologyChange.newBuilder().addCategory(Category.UNKNOWN)
-//                        .addUnitType(UnitType.COLORABLE_LIGHT).addServiceType(ServiceType.POWER_STATE_SERVICE).build();
-//                .setDependingOntologyChange(ontologyChange)
-
+                // create trigger config
                 final TriggerConfig triggerConfig = TriggerConfig.newBuilder().setLabel("trigger0").setQuery(example.getQuery()).build();
 
                 // setup controller
@@ -62,6 +58,5 @@ public class OntologyTriggerMainViewController extends AbstractFXController {
 
     @Override
     public void updateDynamicContent() {
-        System.out.println("call updateDynamicContent");
     }
 }

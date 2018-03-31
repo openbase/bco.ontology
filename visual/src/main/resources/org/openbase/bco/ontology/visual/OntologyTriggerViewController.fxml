@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="39.0" prefWidth="984.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openbase.bco.ontology.lib.view.OntologyTriggerViewController">
+<AnchorPane prefHeight="39.0" prefWidth="984.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openbase.bco.ontology.visual.OntologyTriggerViewController">
    <children>
       <HBox prefHeight="33.0" prefWidth="984.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0">
          <children>

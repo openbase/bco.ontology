@@ -1,4 +1,4 @@
-package org.openbase.bco.ontology.lib.view;
+package org.openbase.bco.ontology.visual;
 
 /*-
  * #%L
@@ -37,11 +37,8 @@ public class OntologyTestAppLoader extends AbstractFXMLApplication {
 
     @Override
     protected String getDefaultFXML() {
-        return "/src/main/resources/org/openbase/bco/ontology/lib/view/OntologyTriggerMainViewController.fxml";
+        return "org/openbase/bco/ontology/visual/OntologyTriggerMainViewController.fxml";
     }
-//    protected String getDefaultFXML() {
-//        return "/org/openbase/jul/visual/javafx/geometry/svg/SVGLogoPane.fxml";
-//    }
 
     @Override
     protected void registerProperties() {

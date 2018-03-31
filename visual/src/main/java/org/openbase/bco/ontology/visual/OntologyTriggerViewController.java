@@ -1,4 +1,4 @@
-package org.openbase.bco.ontology.lib.view;
+package org.openbase.bco.ontology.visual;
 
 /*-
  * #%L
@@ -90,7 +90,7 @@ public class OntologyTriggerViewController extends AbstractFXController {
         System.out.println("call updateDynamicContent");
     }
 
-    public void setup(String description, TriggerConfig triggerConfig) {
+    public void setup(final String description, final TriggerConfig triggerConfig) {
         triggerDescription.setText(description);
         registerTrigger(triggerConfig);
     }

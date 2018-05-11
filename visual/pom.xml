@@ -84,7 +84,7 @@
         <dependency>
             <groupId>org.openbase</groupId>
             <artifactId>jul.visual.javafx</artifactId>
-            <version>1.6-SNAPSHOT</version>
+            <version>${dependency.jul.version}</version>
         </dependency>
         <dependency>
             <groupId>org.openbase</groupId>

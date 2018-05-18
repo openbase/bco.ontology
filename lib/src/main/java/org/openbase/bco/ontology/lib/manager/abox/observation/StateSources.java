@@ -55,7 +55,7 @@ import rst.domotic.state.StandbyStateType.StandbyState;
 import rst.domotic.state.SwitchStateType.SwitchState;
 import rst.domotic.state.TamperStateType.TamperState;
 import rst.domotic.state.TemperatureStateType.TemperatureState;
-import rst.domotic.state.UserActivityStateType.UserActivityState;
+import rst.domotic.state.ActivityStateType.ActivityState;
 import rst.domotic.state.UserPresenceStateType.UserPresenceState;
 import rst.domotic.state.WindowStateType.WindowState;
 
@@ -155,7 +155,7 @@ public class StateSources {
             case TEMPEST_ALARM_STATE_SERVICE:
                 return null;
             case USER_ACTIVITY_STATE_SERVICE:
-                return userActivityStateSources((UserActivityState) stateObject);
+                return activityStateSources((ActivityState) stateObject);
             case USER_PRESENCE_STATE_SERVICE:
                 return userPresenceStateSources((UserPresenceState) stateObject);
             case WATER_ALARM_STATE_SERVICE:
@@ -659,15 +659,15 @@ public class StateSources {
     }
 
     /**
-     * Method returns the state source(s) result(s) (contains state value(s)) of the input userActivityState.
+     * Method returns the state source(s) result(s) (contains state value(s)) of the input activityState.
      *
-     * @param userActivityState The UserActivityState.
+     * @param activityState The ActivityState.
      * @return state source(s) result(s) of the input state.
      */
-    private List<RdfNodeObject> userActivityStateSources(final UserActivityState userActivityState) {
+    private List<RdfNodeObject> activityStateSources(final ActivityState activityState) {
 
         final List<RdfNodeObject> stateSources = new ArrayList<>();
-        final String activityIdVal = "\"" + userActivityState.getActivityId() + "\"^^NS:ActivityId";
+        final String activityIdVal = "\"" + activityState.getActivityId() + "\"^^NS:ActivityId";
         stateSources.add(new RdfNodeObject(new ArrayList<String>() {{add(activityIdVal);}}, true));
 
         return stateSources;

@@ -681,14 +681,14 @@ public final class CompetencyQuestions {
     /**
      * Befinden sich aktuell Personen im Apartment und in welchen Bereichen befinden sie sich?
      */
-    // Hint: query via userPresenceState
+    // Hint: query via userTransitState
     public static final String REQ_20 =
             "PREFIX NAMESPACE:   <http://www.openbase.org/bco/ontology#> "
                 + "SELECT ?unitLabel ?locationLabel WHERE { "
 
                 // get all user units via current observation
                 + "{ SELECT (MAX(?time) AS ?currentTime) ?unit WHERE { "
-                    + "?unit a NAMESPACE:UserPresenceState . "
+                    + "?unit a NAMESPACE:UserTransitState . "
                     + "?obs NAMESPACE:hasUnitId ?unit . "
                     + "?obs NAMESPACE:hasTimeStamp ?time . "
                     + "?obs NAMESPACE:hasStateValue NAMESPACE:AT_HOME . "

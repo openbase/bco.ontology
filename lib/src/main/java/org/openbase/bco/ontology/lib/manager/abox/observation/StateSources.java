@@ -56,7 +56,7 @@ import rst.domotic.state.SwitchStateType.SwitchState;
 import rst.domotic.state.TamperStateType.TamperState;
 import rst.domotic.state.TemperatureStateType.TemperatureState;
 import rst.domotic.state.ActivityStateType.ActivityState;
-import rst.domotic.state.UserPresenceStateType.UserPresenceState;
+import rst.domotic.state.UserTransitStateType.UserTransitState;
 import rst.domotic.state.WindowStateType.WindowState;
 
 import java.awt.*;
@@ -157,7 +157,7 @@ public class StateSources {
             case USER_ACTIVITY_STATE_SERVICE:
                 return activityStateSources((ActivityState) stateObject);
             case USER_PRESENCE_STATE_SERVICE:
-                return userPresenceStateSources((UserPresenceState) stateObject);
+                return userTransitStateSources((UserTransitState) stateObject);
             case WATER_ALARM_STATE_SERVICE:
                 return null;
             case WINDOW_STATE_SERVICE:
@@ -674,16 +674,16 @@ public class StateSources {
     }
 
     /**
-     * Method returns the state source(s) result(s) (contains state value(s)) of the input userPresenceState.
+     * Method returns the state source(s) result(s) (contains state value(s)) of the input userTransitState.
      *
-     * @param userPresenceState The UserPresenceState.
+     * @param userTransitState The UserTransitState.
      * @return state source(s) result(s) of the input state.
      */
-    private List<RdfNodeObject> userPresenceStateSources(final UserPresenceState userPresenceState) {
+    private List<RdfNodeObject> userTransitStateSources(final UserTransitState userTransitState) {
 
         final List<RdfNodeObject> stateSources = new ArrayList<>();
-        final String userPresenceStateVal = userPresenceState.getValue().toString();
-        stateSources.add(new RdfNodeObject(new ArrayList<String>() {{add(userPresenceStateVal);}}, false));
+        final String userTransitStateVal = userTransitState.getValue().toString();
+        stateSources.add(new RdfNodeObject(new ArrayList<String>() {{add(userTransitStateVal);}}, false));
 
         return stateSources;
     }

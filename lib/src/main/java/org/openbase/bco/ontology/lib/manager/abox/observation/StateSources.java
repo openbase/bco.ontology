@@ -243,7 +243,7 @@ public class StateSources {
 
         final List<RdfNodeObject> stateSources = new ArrayList<>();
 
-        final String blindMovementStateVal = blindState.getMovementState().toString();
+        final String blindMovementStateVal = blindState.getValue().toString();
         stateSources.add(new RdfNodeObject(new ArrayList<String>() {{add(blindMovementStateVal);}}, false));
         final String blindOpeningRationVal = "\"" + String.valueOf(blindState.getOpeningRatio()) + "\"^^NS:Percent";
         stateSources.add(new RdfNodeObject(new ArrayList<String>() {{add(blindOpeningRationVal);}}, true));

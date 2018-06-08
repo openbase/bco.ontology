@@ -78,7 +78,7 @@ public class UnitRemoteSynchronizer {
         final List<UnitConfig> unitConfigsBuf = new ArrayList<>();
 
         for (final UnitConfig unitConfig : unitConfigs) {
-            if (unitConfig.getType() != UnitType.DEVICE && unitConfig.getEnablingState().getValue() == State.ENABLED) {
+            if (unitConfig.getUnitType() != UnitType.DEVICE && unitConfig.getEnablingState().getValue() == State.ENABLED) {
                 unitConfigsBuf.add(unitConfig);
                 potentialRemotesNum++;
             }

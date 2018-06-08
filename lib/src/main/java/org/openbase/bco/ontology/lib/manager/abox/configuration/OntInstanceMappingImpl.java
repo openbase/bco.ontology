@@ -98,7 +98,7 @@ public class OntInstanceMappingImpl implements OntInstanceMapping {
                 final String unitTypeName;
 
                 try {
-                    switch (unitConfig.getType()) {
+                    switch (unitConfig.getUnitType()) {
                         case LOCATION:
                             unitTypeName = StringModifier.getCamelCaseName(unitConfig.getLocationConfig().getType().name());
                             break;
@@ -106,7 +106,7 @@ public class OntInstanceMappingImpl implements OntInstanceMapping {
                             unitTypeName = StringModifier.getCamelCaseName(unitConfig.getConnectionConfig().getType().name());
                             break;
                         default:
-                            unitTypeName = StringModifier.getCamelCaseName(unitConfig.getType().name());
+                            unitTypeName = StringModifier.getCamelCaseName(unitConfig.getUnitType().name());
                     }
 
                     triples.add(new RdfTriple(unitConfig.getId(), OntExpr.IS_A.getName(), unitTypeName));

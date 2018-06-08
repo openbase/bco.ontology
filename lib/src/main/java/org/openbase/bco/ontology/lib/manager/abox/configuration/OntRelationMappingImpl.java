@@ -70,10 +70,10 @@ public class OntRelationMappingImpl implements OntRelationMapping {
 
         List<RdfTriple> triples = new ArrayList<>();
         try {
-            if (unitConfig.getType().equals(UnitType.LOCATION)) {
+            if (unitConfig.getUnitType().equals(UnitType.LOCATION)) {
                 triples.addAll(getInsertSubLocationRelation(unitConfig));
                 triples.addAll(getInsertHasUnitRelation(unitConfig));
-            } else if (unitConfig.getType().equals(UnitType.CONNECTION)) {
+            } else if (unitConfig.getUnitType().equals(UnitType.CONNECTION)) {
                 triples.addAll(getInsertConnectionRelation(unitConfig));
             }
 
@@ -109,10 +109,10 @@ public class OntRelationMappingImpl implements OntRelationMapping {
 
         List<RdfTriple> triples = new ArrayList<>();
 
-        if (unitConfig.getType().equals(UnitType.LOCATION)) {
+        if (unitConfig.getUnitType().equals(UnitType.LOCATION)) {
             triples.add(getDeleteSubLocationRelation(unitConfig));
             triples.add(getDeleteUnitRelation(unitConfig));
-        } else if (unitConfig.getType().equals(UnitType.CONNECTION)) {
+        } else if (unitConfig.getUnitType().equals(UnitType.CONNECTION)) {
             triples.add(getDeleteConnectionRelation(unitConfig));
         }
 
@@ -282,7 +282,7 @@ public class OntRelationMappingImpl implements OntRelationMapping {
 
         for (final ServiceConfig serviceConfig : unitConfig.getServiceConfigList()) {
             try {
-                final String serviceTypeName = StringModifier.firstCharToLowerCase(StringModifier.getServiceTypeName(serviceConfig.getServiceDescription().getType()));
+                final String serviceTypeName = StringModifier.firstCharToLowerCase(StringModifier.getServiceTypeName(serviceConfig.getServiceDescription().getServiceType()));
                 triples.add(new RdfTriple(unitConfig.getId(), OntProp.PROVIDER_SERVICE.getName(), serviceTypeName));
             } catch (NotAvailableException ex) {
                 exceptionStack = MultiException.push(this, ex, exceptionStack);

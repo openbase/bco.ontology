@@ -64,13 +64,13 @@ public class OntClassMappingImpl implements OntClassMapping {
                     assert false;
                     throw new NotAvailableException("UnitConfig is null");
                 }
-                if (unitConfig.getType().equals(UnitType.UNKNOWN)) {
+                if (unitConfig.getUnitType().equals(UnitType.UNKNOWN)) {
                     continue;
                 }
 
-                triples.add(getUnitTypeClass(unitConfig.getType()));
+                triples.add(getUnitTypeClass(unitConfig.getUnitType()));
 
-                switch (unitConfig.getType()) {
+                switch (unitConfig.getUnitType()) {
                     case LOCATION:
                         triples.addAll(getLocationTypeClasses(unitConfig));
                         break;

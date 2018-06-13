@@ -134,8 +134,6 @@ public class DataAssignation extends DataAggregation {
                 case ILLUMINANCE_STATE_SERVICE:
                     triples.addAll(aggregateContinuousStateValue(ontStateChanges, StateValueType.LUX));
                     break;
-                case INTENSITY_STATE_SERVICE:
-                    break;
                 case INTRUSION_ALARM_STATE_SERVICE:
                     break;
                 case MEDICAL_EMERGENCY_ALARM_STATE_SERVICE:

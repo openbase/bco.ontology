@@ -22,15 +22,15 @@ package org.openbase.bco.ontology.lib.manager.abox.configuration;
  * #L%
  */
 
-import java.util.ArrayList;
-import java.util.List;
+import org.openbase.bco.dal.lib.layer.service.Services;
 import org.openbase.bco.ontology.lib.system.config.OntConfig.OntProp;
-import org.openbase.bco.ontology.lib.utility.sparql.RdfTriple;
 import org.openbase.bco.ontology.lib.utility.StringModifier;
+import org.openbase.bco.ontology.lib.utility.sparql.RdfTriple;
 import org.openbase.jul.exception.MultiException;
 import org.openbase.jul.exception.NotAvailableException;
 import org.openbase.jul.exception.printer.ExceptionPrinter;
 import org.openbase.jul.exception.printer.LogLevel;
+import org.openbase.jul.extension.rst.processing.LabelProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rst.domotic.service.ServiceConfigType.ServiceConfig;
@@ -38,7 +38,9 @@ import rst.domotic.service.ServiceTemplateType.ServiceTemplate.ServiceType;
 import rst.domotic.state.EnablingStateType.EnablingState.State;
 import rst.domotic.unit.UnitConfigType.UnitConfig;
 import rst.domotic.unit.UnitTemplateType.UnitTemplate.UnitType;
-import org.openbase.bco.dal.lib.layer.service.Services;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author agatting on 21.12.16.
@@ -255,7 +257,7 @@ public class OntRelationMappingImpl implements OntRelationMapping {
     }
 
     private RdfTriple getInsertLabelRelation(final UnitConfig unitConfig) throws NotAvailableException {
-        return new RdfTriple(unitConfig.getId(), OntProp.LABEL.getName(), StringModifier.addQuotationMarks(unitConfig.getLabel()));
+        return new RdfTriple(unitConfig.getId(), OntProp.LABEL.getName(), StringModifier.addQuotationMarks(LabelProcessor.getFirstLabel(unitConfig.getLabel())));
     }
 
     private RdfTriple getDeleteLabelRelation(final UnitConfig unitConfig) {

@@ -257,7 +257,7 @@ public class OntRelationMappingImpl implements OntRelationMapping {
     }
 
     private RdfTriple getInsertLabelRelation(final UnitConfig unitConfig) throws NotAvailableException {
-        return new RdfTriple(unitConfig.getId(), OntProp.LABEL.getName(), StringModifier.addQuotationMarks(LabelProcessor.getFirstLabel(unitConfig.getLabel())));
+        return new RdfTriple(unitConfig.getId(), OntProp.LABEL.getName(), StringModifier.addQuotationMarks(LabelProcessor.getBestMatch(unitConfig.getLabel())));
     }
 
     private RdfTriple getDeleteLabelRelation(final UnitConfig unitConfig) {

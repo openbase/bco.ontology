@@ -152,7 +152,7 @@ public class StateSources {
                 return temperatureStateSources((TemperatureState) stateObject);
             case TEMPEST_ALARM_STATE_SERVICE:
                 return null;
-            case MULTI_ACTIVITY_STATE_SERVICE:
+            case ACTIVITY_MULTI_STATE_SERVICE:
                 return activityStateSources((List<ActivityState>) stateObject);
             case USER_TRANSIT_STATE_SERVICE:
                 return userTransitStateSources((UserTransitState) stateObject);

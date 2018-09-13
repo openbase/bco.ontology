@@ -31,6 +31,7 @@ import org.openbase.jul.exception.InstantiationException;
 import org.openbase.jul.exception.NotAvailableException;
 import org.openbase.jul.pattern.ObservableImpl;
 import org.openbase.jul.pattern.Observer;
+import org.openbase.jul.pattern.provider.DataProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rst.domotic.state.EnablingStateType.EnablingState.State;
@@ -48,7 +49,7 @@ public class UnitRemoteSynchronizer {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UnitRemoteSynchronizer.class);
 
-    private static final ObservableImpl<UnitConfig> UNIT_REMOTE_OBSERVABLE = new ObservableImpl<>();
+    private static final ObservableImpl<DataProvider<UnitConfig>, UnitConfig> UNIT_REMOTE_OBSERVABLE = new ObservableImpl<>();
     private final List<UnitRemote> loadedUnitRemotes;
 
     private int successfullyRemotesNum = 0;
@@ -61,16 +62,16 @@ public class UnitRemoteSynchronizer {
     public UnitRemoteSynchronizer() {
         this.loadedUnitRemotes = new ArrayList<>();
 
-        final Observer<List<UnitConfig>> newUnitConfigObserver = (source, unitConfigs) -> loadUnitRemotes(unitConfigs);
-        final Observer<List<UnitConfig>> removedUnitConfigObserver = (source, unitConfigs) -> removeUnitRemotes(unitConfigs);
-        final Observer<UnitConfig> unitRemoteObserver = (source, unitConfig) -> setStateObservation(unitConfig);
+        final Observer<DataProvider<List<UnitConfig>>, List<UnitConfig>> newUnitConfigObserver = (source, unitConfigs) -> loadUnitRemotes(unitConfigs);
+        final Observer<DataProvider<List<UnitConfig>>, List<UnitConfig>> removedUnitConfigObserver = (source, unitConfigs) -> removeUnitRemotes(unitConfigs);
+        final Observer<DataProvider<UnitConfig>, UnitConfig> unitRemoteObserver = (source, unitConfig) -> setStateObservation(unitConfig);
 
         OntologyManagerController.NEW_UNIT_CONFIG_OBSERVABLE.addObserver(newUnitConfigObserver);
         OntologyManagerController.REMOVED_UNIT_CONFIG_OBSERVABLE.addObserver(removedUnitConfigObserver);
         UnitRemoteSynchronizer.UNIT_REMOTE_OBSERVABLE.addObserver(unitRemoteObserver);
     }
 
-    private void loadUnitRemotes(final List<UnitConfig> unitConfigs) throws InterruptedException, CouldNotPerformException {
+    private void loadUnitRemotes(final List<UnitConfig> unitConfigs) throws CouldNotPerformException {
         this.potentialRemotesNum = 0;
         this.successfullyRemotesNum = 0;
         this.failedRemotesNum = 0;
@@ -124,12 +125,11 @@ public class UnitRemoteSynchronizer {
 
     private void setStateObservation(final UnitConfig unitConfig) throws InterruptedException {
         try {
-            final UnitRemote unitRemote = Units.getFutureUnit(unitConfig, true).get();
-
+            final UnitRemote unitRemote = Units.getUnit(unitConfig, true);
             addLoadedUnitRemote(unitRemote);
             identifyUnitRemote(unitRemote);
             incrementSuccessfullyRemotesNum(unitRemote.getLabel());
-        } catch (ExecutionException | NotAvailableException | InstantiationException ex) {
+        } catch (NotAvailableException | InstantiationException ex) {
             incrementFailedRemotesNum();
             LOGGER.warn("Could not get unitRemote of " + unitConfig.getLabel() + ". Dropped.");
         }

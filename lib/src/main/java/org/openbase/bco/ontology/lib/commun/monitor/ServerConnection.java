@@ -33,6 +33,7 @@ import org.openbase.jul.exception.NotAvailableException;
 import org.openbase.jul.exception.printer.ExceptionPrinter;
 import org.openbase.jul.exception.printer.LogLevel;
 import org.openbase.jul.pattern.ObservableImpl;
+import org.openbase.jul.pattern.Remote;
 import org.openbase.jul.pattern.Remote.ConnectionState;
 import org.openbase.jul.schedule.GlobalScheduledExecutorService;
 import org.slf4j.Logger;
@@ -49,7 +50,7 @@ public final class ServerConnection {
     /**
      * Informs about the server connection state.
      */
-    public static final ObservableImpl<ConnectionState> SERVER_STATE_OBSERVABLE = new ObservableImpl<>(false);
+    public static final ObservableImpl<Remote, ConnectionState> SERVER_STATE_OBSERVABLE = new ObservableImpl<>(false);
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ServerConnection.class);
 

@@ -44,6 +44,7 @@ import org.openbase.jul.iface.Launchable;
 import org.openbase.jul.iface.VoidInitializable;
 import org.openbase.jul.pattern.ObservableImpl;
 import org.openbase.jul.pattern.Observer;
+import org.openbase.jul.pattern.provider.DataProvider;
 import org.openbase.jul.schedule.Stopwatch;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
@@ -65,17 +66,17 @@ public final class OntologyManagerController implements Launchable<Void>, VoidIn
     /**
      * Informs observer about new units.
      */
-    public static final ObservableImpl<List<UnitConfig>> NEW_UNIT_CONFIG_OBSERVABLE = new ObservableImpl<>();
+    public static final ObservableImpl<DataProvider<List<UnitConfig>>, List<UnitConfig>> NEW_UNIT_CONFIG_OBSERVABLE = new ObservableImpl<>();
 
     /**
      * Informs observer about updated units.
      */
-    public static final ObservableImpl<List<UnitConfig>> UPDATED_UNIT_CONFIG_OBSERVABLE = new ObservableImpl<>();
+    public static final ObservableImpl<DataProvider<List<UnitConfig>>, List<UnitConfig>> UPDATED_UNIT_CONFIG_OBSERVABLE = new ObservableImpl<>();
 
     /**
      * Informs observer about removed units.
      */
-    public static final ObservableImpl<List<UnitConfig>> REMOVED_UNIT_CONFIG_OBSERVABLE = new ObservableImpl<>();
+    public static final ObservableImpl<DataProvider<List<UnitConfig>>, List<UnitConfig>> REMOVED_UNIT_CONFIG_OBSERVABLE = new ObservableImpl<>();
 
     static {
         DefaultConverterRepository.getDefaultConverterRepository().addConverter(new ProtocolBufferConverter<>(OntologyChange.newBuilder().build()));
@@ -85,7 +86,7 @@ public final class OntologyManagerController implements Launchable<Void>, VoidIn
 
     private ProtobufListDiff<String, UnitConfig, UnitConfig.Builder> registryDiff;
     private UnitRegistryRemote unitRegistryRemote;
-    private Observer<UnitRegistryData> unitRegistryObserver;
+    private Observer<DataProvider<UnitRegistryData>, UnitRegistryData> unitRegistryObserver;
 
     @Override
     public void activate() throws CouldNotPerformException, InterruptedException {

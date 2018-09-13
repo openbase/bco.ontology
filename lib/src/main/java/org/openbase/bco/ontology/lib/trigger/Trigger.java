@@ -24,8 +24,10 @@ package org.openbase.bco.ontology.lib.trigger;
 
 import org.openbase.jul.iface.Manageable;
 import org.openbase.jul.pattern.Observer;
+import org.openbase.jul.pattern.provider.DataProvider;
 import rst.domotic.state.ActivationStateType.ActivationState;
 import rst.domotic.ontology.TriggerConfigType.TriggerConfig;
+import rst.domotic.state.ActivationStateType.ActivationState.State;
 
 /**
  * @author agatting on 21.12.16.
@@ -37,14 +39,14 @@ public interface Trigger extends Manageable<TriggerConfig> {
      *
      * @param observer is the observer to register.
      */
-    void addObserver(Observer<ActivationState.State> observer);
+    void addObserver(Observer<Trigger, ActivationState.State> observer);
 
     /**
      * Method removes the given observer from this observable to finish the observation.
      *
      * @param observer is the observer to remove.
      */
-    void removeObserver(Observer<ActivationState.State> observer);
+    void removeObserver(Observer<Trigger, ActivationState.State> observer);
 
     /**
      * Method returns the system of the created trigger.

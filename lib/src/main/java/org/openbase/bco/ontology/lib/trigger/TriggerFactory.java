@@ -37,6 +37,7 @@ import org.openbase.jul.extension.rsb.com.RSBFactoryImpl;
 import org.openbase.jul.extension.rsb.iface.RSBListener;
 import org.openbase.jul.pattern.Factory;
 import org.openbase.jul.pattern.ObservableImpl;
+import org.openbase.jul.pattern.provider.DataProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rst.domotic.ontology.OntologyChangeType.OntologyChange;
@@ -50,7 +51,7 @@ public class TriggerFactory implements Factory {
     /**
      * Informs observer about changed categories.
      */
-    public static final ObservableImpl<OntologyChange> ONTOLOGY_CHANGE_OBSERVABLE = new ObservableImpl<>(false);
+    public static final ObservableImpl<DataProvider<OntologyChange>, OntologyChange> ONTOLOGY_CHANGE_OBSERVABLE = new ObservableImpl<>(false);
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TriggerFactory.class);
 

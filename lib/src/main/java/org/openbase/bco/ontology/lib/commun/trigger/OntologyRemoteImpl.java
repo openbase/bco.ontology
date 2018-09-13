@@ -34,7 +34,9 @@ import org.openbase.bco.ontology.lib.commun.monitor.ServerConnection;
 import org.openbase.bco.ontology.lib.system.config.OntConfig;
 import org.openbase.bco.ontology.lib.trigger.TriggerFactory;
 import org.openbase.jul.pattern.Observer;
+import org.openbase.jul.pattern.Remote;
 import org.openbase.jul.pattern.Remote.ConnectionState;
+import org.openbase.jul.pattern.provider.DataProvider;
 import rst.domotic.ontology.OntologyChangeType.OntologyChange;
 
 import java.io.IOException;
@@ -75,7 +77,7 @@ public class OntologyRemoteImpl implements OntologyRemote {
      * {@inheritDoc}
      */
     @Override
-    public void addConnectionStateObserver(final Observer<ConnectionState> observer) {
+    public void addConnectionStateObserver(final Observer<Remote, ConnectionState> observer) {
         ServerConnection.SERVER_STATE_OBSERVABLE.addObserver(observer);
     }
 
@@ -83,7 +85,7 @@ public class OntologyRemoteImpl implements OntologyRemote {
      * {@inheritDoc}
      */
     @Override
-    public void removeConnectionStateObserver(final Observer<ConnectionState> observer) {
+    public void removeConnectionStateObserver(final Observer<Remote, ConnectionState> observer) {
         ServerConnection.SERVER_STATE_OBSERVABLE.removeObserver(observer);
     }
 
@@ -91,7 +93,7 @@ public class OntologyRemoteImpl implements OntologyRemote {
      * {@inheritDoc}
      */
     @Override
-    public void addOntologyObserver(final Observer<OntologyChange> observer) {
+    public void addOntologyObserver(final Observer<DataProvider<OntologyChange>, OntologyChange> observer) {
         TriggerFactory.ONTOLOGY_CHANGE_OBSERVABLE.addObserver(observer);
     }
 
@@ -99,7 +101,7 @@ public class OntologyRemoteImpl implements OntologyRemote {
      * {@inheritDoc}
      */
     @Override
-    public void removeOntologyObserver(final Observer<OntologyChange> observer) {
+    public void removeOntologyObserver(final Observer<DataProvider<OntologyChange>, OntologyChange> observer) {
         TriggerFactory.ONTOLOGY_CHANGE_OBSERVABLE.removeObserver(observer);
     }
 

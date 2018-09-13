@@ -31,6 +31,7 @@ import org.openbase.bco.ontology.lib.trigger.TriggerFactory;
 import org.openbase.jul.exception.CouldNotPerformException;
 import org.openbase.jul.exception.printer.ExceptionPrinter;
 import org.openbase.jul.pattern.Observable;
+import org.openbase.jul.pattern.provider.DataProvider;
 import org.openbase.jul.visual.javafx.control.AbstractFXController;
 import org.slf4j.LoggerFactory;
 import rst.domotic.ontology.TriggerConfigType.TriggerConfig;
@@ -60,7 +61,7 @@ public class OntologyTriggerViewController extends AbstractFXController {
     private void registerTrigger(final TriggerConfig triggerConfig) {
         try {
             final Trigger trigger = new TriggerFactory().newInstance(triggerConfig);
-            trigger.addObserver((Observable<State> source, ActivationState.State data) -> {
+            trigger.addObserver((Trigger source, ActivationState.State data) -> {
                 System.out.println(trigger.getTriggerConfig().getLabel() + " is " + data);
                 setTriggerState(data);
             });

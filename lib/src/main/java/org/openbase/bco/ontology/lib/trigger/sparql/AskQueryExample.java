@@ -26,10 +26,12 @@ import org.openbase.bco.ontology.lib.trigger.Trigger;
 import org.openbase.bco.ontology.lib.trigger.TriggerFactory;
 import org.openbase.jul.exception.CouldNotPerformException;
 import org.openbase.jul.pattern.Observable;
+import org.openbase.jul.pattern.provider.DataProvider;
 import rst.domotic.ontology.OntologyChangeType.OntologyChange;
 import rst.domotic.ontology.TriggerConfigType.TriggerConfig;
 import rst.domotic.service.ServiceTemplateType.ServiceTemplate.ServiceType;
 import rst.domotic.state.ActivationStateType.ActivationState;
+import rst.domotic.state.ActivationStateType.ActivationState.State;
 import rst.domotic.unit.UnitTemplateType.UnitTemplate.UnitType;
 
 import java.time.OffsetDateTime;
@@ -263,7 +265,7 @@ public class AskQueryExample {
         final TriggerFactory triggerFactory = new TriggerFactory();
         final Trigger trigger = triggerFactory.newInstance(triggerConfig);
 
-        trigger.addObserver((Observable<ActivationState.State> source, ActivationState.State data) -> {
+        trigger.addObserver((Trigger source, ActivationState.State data) -> {
             System.out.println(trigger.getTriggerConfig().getLabel() + " is " + data);
             // do useful stuff
         });

@@ -39,6 +39,7 @@ import org.openbase.jul.exception.InstantiationException;
 import org.openbase.jul.exception.printer.ExceptionPrinter;
 import org.openbase.jul.exception.printer.LogLevel;
 import org.openbase.jul.pattern.Observer;
+import org.openbase.jul.pattern.provider.DataProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rst.domotic.unit.UnitConfigType.UnitConfig;
@@ -58,9 +59,9 @@ public class UnitRegistrySynchronizer {
     private final OntInstanceMapping ontInstanceMapping;
     private final OntRelationMapping ontRelationMapping;
 
-    private final Observer<List<UnitConfig>> newUnitConfigObserver;
-    private final Observer<List<UnitConfig>> updatedUnitConfigObserver;
-    private final Observer<List<UnitConfig>> removedUnitConfigObserver;
+    private final Observer<DataProvider<List<UnitConfig>>, List<UnitConfig>> newUnitConfigObserver;
+    private final Observer<DataProvider<List<UnitConfig>>, List<UnitConfig>> updatedUnitConfigObserver;
+    private final Observer<DataProvider<List<UnitConfig>>, List<UnitConfig>> removedUnitConfigObserver;
 
     /**
      * Constructor for UnitRegistrySynchronizer.

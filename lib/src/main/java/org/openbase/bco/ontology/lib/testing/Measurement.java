@@ -41,15 +41,14 @@ import org.openbase.bco.ontology.lib.commun.web.SparqlHttp;
 import org.openbase.bco.ontology.lib.manager.aggregation.Aggregation;
 import org.openbase.bco.ontology.lib.manager.aggregation.AggregationImpl;
 import org.openbase.bco.ontology.lib.system.config.OntConfig;
-import org.openbase.bco.ontology.lib.utility.sparql.QueryExpression;
 import org.openbase.bco.ontology.lib.trigger.Trigger;
 import org.openbase.bco.ontology.lib.trigger.TriggerFactory;
 import org.openbase.bco.ontology.lib.trigger.sparql.AskQueryExample;
+import org.openbase.bco.ontology.lib.utility.sparql.QueryExpression;
 import org.openbase.jul.exception.CouldNotPerformException;
 import org.openbase.jul.exception.NotAvailableException;
 import org.openbase.jul.exception.printer.ExceptionPrinter;
 import org.openbase.jul.exception.printer.LogLevel;
-import org.openbase.jul.pattern.Observable;
 import org.openbase.jul.pattern.ObservableImpl;
 import org.openbase.jul.pattern.Observer;
 import org.openbase.jul.schedule.Stopwatch;
@@ -57,15 +56,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rst.domotic.ontology.OntologyChangeType.OntologyChange;
 import rst.domotic.ontology.TriggerConfigType.TriggerConfig;
-import rst.domotic.state.ActivationStateType.ActivationState;
 import rst.domotic.state.PowerStateType.PowerState;
 import rst.domotic.unit.UnitTemplateType.UnitTemplate.UnitType;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -76,42 +70,40 @@ import java.util.concurrent.ExecutionException;
 public class Measurement {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Measurement.class);
-    private ObservableImpl<Boolean> triggerMeasurementObservable = null;
     private static final String FILE_NAME = "TriggerMeasurementAggDataBasedOnNormalDay.xlsx";
-    private final ColorableLightRemote colorableLightRemote;
-    private final PowerSwitchRemote powerSwitchRemote;
-    public static Stopwatch measurementWatch = new Stopwatch();
     private final static int TRIGGER_MAX_COUNT = 1000; //1000
-    private int triggerCount;
-    private boolean simpleQueryActive;
     private final static int DAYS_MAX_COUNT = 10; //365
-    private int daysCurCount;
-    private final DuplicateData duplicateData;
-    private boolean isMeasurementFinished;
-    private final Aggregation aggregation;
-    private final Stopwatch stopwatch;
-    private final List<Long> simpleQuMeasuredValues;
-    private final List<Long> complexQuMeasuredValues;
-    private long numberOfTriple;
-    private DataVolume curDataVolume;
-    private boolean isPowerOn;
-
+    private static final String SIMPLE_QUERY =
+            "PREFIX NAMESPACE: <http://www.openbase.org/bco/ontology#> "
+                    + "ASK { "
+                    + "?obs a NAMESPACE:OntObservation . "
+                    + "?obs NAMESPACE:hasUnitId ?unit . "
+                    + "?obs NAMESPACE:hasStateValue NAMESPACE:ON . "
+                    + "?unit a NAMESPACE:ColorableLight . "
+                    + "}";
+    private static final String COMPLEX_QUERY = AskQueryExample.QUERY_0;
+    public static Stopwatch measurementWatch = new Stopwatch();
     public static List<Long> unitChange = new ArrayList<>();
     public static List<Long> sendSPARQL = new ArrayList<>();
     public static List<Long> answerOfServerToOM = new ArrayList<>();
     public static List<Long> triggerImplFromRSB = new ArrayList<>();
     public static List<Long> triggerEnd = new ArrayList<>();
+    private final ColorableLightRemote colorableLightRemote;
+    private final PowerSwitchRemote powerSwitchRemote;
+    private final DuplicateData duplicateData;
+    private final Aggregation aggregation;
+    private final Stopwatch stopwatch;
+    private final List<Long> simpleQuMeasuredValues;
+    private final List<Long> complexQuMeasuredValues;
+    private ObservableImpl<Object, Boolean> triggerMeasurementObservable;
+    private int triggerCount;
+    private boolean simpleQueryActive;
+    private int daysCurCount;
+    private boolean isMeasurementFinished;
+    private long numberOfTriple;
+    private final Observer<Object, Boolean> measurementAggregationStartObserver = (source, data) -> startMeasurementAggData();
 
-    private static final String SIMPLE_QUERY =
-            "PREFIX NAMESPACE: <http://www.openbase.org/bco/ontology#> "
-                    + "ASK { "
-                        + "?obs a NAMESPACE:OntObservation . "
-                        + "?obs NAMESPACE:hasUnitId ?unit . "
-                        + "?obs NAMESPACE:hasStateValue NAMESPACE:ON . "
-                        + "?unit a NAMESPACE:ColorableLight . "
-                    + "}";
-
-//    public static final String COMPLEX_QUERY =
+    //    public static final String COMPLEX_QUERY =
 //            "PREFIX NAMESPACE: <http://www.openbase.org/bco/ontology#> "
 //            + "PREFIX xsd:   <http://www.w3.org/2001/XMLSchema#> "
 //                + "ASK { "
@@ -143,12 +135,15 @@ public class Measurement {
 //                    + "BIND(minutes(xsd:dateTime(?timeB)) as ?minuteB) . "
 //                    + "FILTER (?minuteA = ?minuteB) . "
 //                + "}";
-
-    private static final String COMPLEX_QUERY = AskQueryExample.QUERY_0;
+    private final Observer<Object, Boolean> measurementStartObserver = (source, data) -> startMeasurementData();
+    private DataVolume curDataVolume;
+    private final Observer<Object, Boolean> measurementMemoryTestStartObserver = (source, data) -> startMeasurementMemoryTest();
+    private boolean isPowerOn;
+    private final Observer<Object, Boolean> simplePerformanceMeasurementStartObserver = (source, data) -> startSimplePerformanceMeasurement();
 
     public Measurement() throws InterruptedException, CouldNotPerformException, ExecutionException {
 //        this.measurementWatch = new Stopwatch();
-        this.triggerMeasurementObservable = new ObservableImpl<>(false, this);
+        this.triggerMeasurementObservable = new ObservableImpl<Object, Boolean>(false, this);
 //        this.colorableLightRemote = (ColorableLightRemote) Units.getUnit("a0f2c9d8-41a6-45c6-9609-5686b6733d4e", true); //old db
         this.colorableLightRemote = (ColorableLightRemote) Units.getUnit("0529ab14-ea69-4c54-9e7a-2288f7b0a5ec", true);
 //        this.powerSwitchRemote = (PowerSwitchRemote) Units.getUnit("d2b8b0e7-dd37-4d89-822c-d66d38dfb6e0", true); //old db
@@ -177,8 +172,7 @@ public class Measurement {
         addNormalDataSetToServer();
 
         simpleTrigger();
-        final Observer<Boolean> activationObserver = (source, data) -> startSimplePerformanceMeasurement();
-        triggerMeasurementObservable.addObserver(activationObserver);
+        triggerMeasurementObservable.addObserver(simplePerformanceMeasurementStartObserver);
         startSimplePerformanceMeasurement();
     }
 
@@ -251,7 +245,7 @@ public class Measurement {
         final TriggerFactory triggerFactory = new TriggerFactory();
         final Trigger trigger = triggerFactory.newInstance(triggerConfig);
 
-        trigger.addObserver((Observable<ActivationState.State> source, ActivationState.State data) -> {
+        trigger.addObserver((source, data) -> {
             if (measurementWatch.isRunning() && !isMeasurementFinished) {
 
                 measurementWatch.stop();
@@ -334,8 +328,7 @@ public class Measurement {
         System.out.println("TripleCount for configData only: " + askNumberOfTriple());
 
         Trigger();
-        final Observer<Boolean> activationObserver = (source, data) -> startMeasurementMemoryTest();
-        triggerMeasurementObservable.addObserver(activationObserver);
+        triggerMeasurementObservable.addObserver(measurementMemoryTestStartObserver);
         startMeasurementMemoryTest();
     }
 
@@ -409,8 +402,7 @@ public class Measurement {
         askNumberOfTriple();
 
         Trigger();
-        final Observer<Boolean> activationObserver = (source, data) -> startMeasurementAggData();
-        triggerMeasurementObservable.addObserver(activationObserver);
+        triggerMeasurementObservable.addObserver(measurementAggregationStartObserver);
         startMeasurementAggData();
     }
 
@@ -420,8 +412,7 @@ public class Measurement {
         askNumberOfTriple();
 
         Trigger();
-        final Observer<Boolean> activationObserver = (source, data) -> startMeasurementData();
-        triggerMeasurementObservable.addObserver(activationObserver);
+        triggerMeasurementObservable.addObserver(measurementStartObserver);
         startMeasurementData();
     }
 
@@ -456,7 +447,7 @@ public class Measurement {
             final TriggerFactory triggerFactory = new TriggerFactory();
             final Trigger trigger = triggerFactory.newInstance(triggerConfig);
 
-            trigger.addObserver((Observable<ActivationState.State> source, ActivationState.State data) -> {
+            trigger.addObserver((source, data) -> {
                 if (measurementWatch.isRunning() && !isMeasurementFinished && simpleQueryActive) {
 
                     measurementWatch.stop();
@@ -487,7 +478,7 @@ public class Measurement {
             final TriggerFactory triggerFactory = new TriggerFactory();
             final Trigger trigger = triggerFactory.newInstance(triggerConfig);
 
-            trigger.addObserver((Observable<ActivationState.State> source, ActivationState.State data) -> {
+            trigger.addObserver((source, data) -> {
                 if (measurementWatch.isRunning() && !isMeasurementFinished && !simpleQueryActive) {
 
                     measurementWatch.stop();
@@ -509,13 +500,6 @@ public class Measurement {
         } catch (CouldNotPerformException ex) {
             ExceptionPrinter.printHistory(ex, LOGGER);
         }
-    }
-
-    private enum DataVolume {
-        CONFIG,
-        CONFIG_DAY,
-        CONFIG_WEEK,
-        UNKNOWN
     }
 
     private void saveMemoryTestValues(final String sheetName, final List<Long> simpleQuMeasuredValues, final List<Long> complexQuMeasuredValues, final DataVolume dataVolume) {
@@ -577,7 +561,7 @@ public class Measurement {
 
         // mean of complex trigger time
         final Cell cellMeanComplex = rowComplex.createCell(column);
-        cellMeanComplex.setCellValue(sumComplex/ complexQuMeasuredValues.size());
+        cellMeanComplex.setCellValue(sumComplex / complexQuMeasuredValues.size());
 
         try {
             final File file = new File(FILE_NAME);
@@ -645,7 +629,7 @@ public class Measurement {
 
         // mean of complex trigger time
         final Cell cellMeanComplex = row.createCell(3);
-        cellMeanComplex.setCellValue(sumComplex/ complexQuMeasuredValues.size());
+        cellMeanComplex.setCellValue(sumComplex / complexQuMeasuredValues.size());
 
         try {
             final File file = new File(FILE_NAME);
@@ -659,6 +643,13 @@ public class Measurement {
         } catch (IOException ex) {
             ExceptionPrinter.printHistory(ex, LOGGER);
         }
+    }
+
+    private enum DataVolume {
+        CONFIG,
+        CONFIG_DAY,
+        CONFIG_WEEK,
+        UNKNOWN
     }
 
 }

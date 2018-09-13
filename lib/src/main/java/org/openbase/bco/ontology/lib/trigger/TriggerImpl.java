@@ -34,7 +34,9 @@ import org.openbase.jul.exception.printer.LogLevel;
 import org.openbase.jul.pattern.Observable;
 import org.openbase.jul.pattern.ObservableImpl;
 import org.openbase.jul.pattern.Observer;
+import org.openbase.jul.pattern.Remote;
 import org.openbase.jul.pattern.Remote.ConnectionState;
+import org.openbase.jul.pattern.provider.DataProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rsb.converter.DefaultConverterRepository;
@@ -43,6 +45,7 @@ import rst.domotic.ontology.OntologyChangeType.OntologyChange;
 import rst.domotic.ontology.TriggerConfigType.TriggerConfig;
 import rst.domotic.service.ServiceTemplateType.ServiceTemplate.ServiceType;
 import rst.domotic.state.ActivationStateType.ActivationState;
+import rst.domotic.state.ActivationStateType.ActivationState.State;
 import rst.domotic.unit.UnitTemplateType.UnitTemplate.UnitType;
 
 /**
@@ -61,12 +64,12 @@ public class TriggerImpl implements Trigger {
         UNKNOWN_CHANGE.add(OntologyChange.Category.UNKNOWN);
     }
 
-    private final ObservableImpl<ActivationState.State> activationObservable;
+    private final ObservableImpl<Trigger, ActivationState.State> activationObservable;
     private boolean active;
     private TriggerConfig triggerConfig;
     private final OntologyRemote ontologyRemote;
-    private final Observer<ConnectionState> connectionObserver;
-    private final Observer<OntologyChange> ontologyObserver;
+    private final Observer<Remote, ConnectionState> connectionObserver;
+    private final Observer<DataProvider<OntologyChange>, OntologyChange> ontologyObserver;
     private ConnectionState hasConnection;
     private final OntologyChange.Category category;
 
@@ -79,7 +82,7 @@ public class TriggerImpl implements Trigger {
         this.category = OntologyChange.Category.UNKNOWN; //TODO
         this.hasConnection = ConnectionState.UNKNOWN;
         this.ontologyRemote = ontologyRemote;
-        this.activationObservable = new ObservableImpl<>(true, this);
+        this.activationObservable = new ObservableImpl<Trigger, ActivationState.State>(true, this);
 
         final OntologyChange ontologyChange = OntologyChange.newBuilder().addCategory(category).build();
 
@@ -98,7 +101,7 @@ public class TriggerImpl implements Trigger {
                 default:
             }
         };
-        this.ontologyObserver = (Observable<OntologyChange> source, OntologyChange data) -> {
+        this.ontologyObserver = (source, data) -> {
             if (!hasConnection.equals(ConnectionState.DISCONNECTED)) {
 //                if (Measurement.measurementWatch.isRunning()) {
 //                    Measurement.measurementWatch.stop();
@@ -111,12 +114,12 @@ public class TriggerImpl implements Trigger {
     }
 
     @Override
-    public void addObserver(final Observer<ActivationState.State> observer) {
+    public void addObserver(final Observer<Trigger, ActivationState.State> observer) {
         activationObservable.addObserver(observer);
     }
 
     @Override
-    public void removeObserver(final Observer<ActivationState.State> observer) {
+    public void removeObserver(final Observer<Trigger, ActivationState.State> observer) {
         activationObservable.removeObserver(observer);
     }
 

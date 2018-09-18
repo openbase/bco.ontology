@@ -405,9 +405,9 @@ public class StateSources {
         stateSources.add(new RdfNodeObject(new ArrayList<String>() {{
             add(comfortVal);
         }}, true));
-        final String energySavingVal = "\"" + String.valueOf(emphasisState.getEnergy()) + "\"^^xsd:double";
+        final String economyVal = "\"" + String.valueOf(emphasisState.getEconomy()) + "\"^^xsd:double";
         stateSources.add(new RdfNodeObject(new ArrayList<String>() {{
-            add(energySavingVal);
+            add(economyVal);
         }}, true));
         final String securityVal = "\"" + String.valueOf(emphasisState.getSecurity()) + "\"^^xsd:double";
         stateSources.add(new RdfNodeObject(new ArrayList<String>() {{

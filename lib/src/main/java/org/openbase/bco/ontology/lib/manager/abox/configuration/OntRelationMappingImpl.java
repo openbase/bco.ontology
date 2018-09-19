@@ -167,7 +167,7 @@ public class OntRelationMappingImpl implements OntRelationMapping {
         }
 
         try {
-            MultiException.checkAndThrow("There are incompletely services!", exceptionStack);
+            MultiException.checkAndThrow(() ->"There are incompletely services!", exceptionStack);
         } catch (MultiException ex) {
             ExceptionPrinter.printHistory(ex, LOGGER, LogLevel.ERROR);
         }
@@ -204,7 +204,7 @@ public class OntRelationMappingImpl implements OntRelationMapping {
         }
 
         try {
-            MultiException.checkAndThrow("There are incompletely services!", exceptionStack);
+            MultiException.checkAndThrow(() ->"There are incompletely services!", exceptionStack);
         } catch (MultiException ex) {
             ExceptionPrinter.printHistory(ex, LOGGER, LogLevel.ERROR);
         }
@@ -292,7 +292,7 @@ public class OntRelationMappingImpl implements OntRelationMapping {
         }
 
         try {
-            MultiException.checkAndThrow("There are incompletely services!", exceptionStack);
+            MultiException.checkAndThrow(() ->"There are incompletely services!", exceptionStack);
         } catch (MultiException ex) {
             ExceptionPrinter.printHistory(ex, LOGGER, LogLevel.ERROR);
         }

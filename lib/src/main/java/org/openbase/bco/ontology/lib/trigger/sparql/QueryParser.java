@@ -203,7 +203,7 @@ public class QueryParser {
                 exceptionStack = MultiException.push(this, ex, exceptionStack);
             }
         }
-        MultiException.checkAndThrow("Could not parse ontologyChange from query string, because of negation phrase in query string! Certain determination of "
+        MultiException.checkAndThrow(() ->"Could not parse ontologyChange from query string, because of negation phrase in query string! Certain determination of "
                 + "trigger changes criteria can't be guarantee. Select manual criteria for this trigger!", exceptionStack);
     }
 

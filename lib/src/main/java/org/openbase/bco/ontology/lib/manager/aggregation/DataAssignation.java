@@ -196,7 +196,7 @@ public class DataAssignation extends DataAggregation {
         }
 
         try {
-            MultiException.checkAndThrow("Could not process all service type identification or state value aggregation!", exceptionStack);
+            MultiException.checkAndThrow(() ->"Could not process all service type identification or state value aggregation!", exceptionStack);
         }  catch (CouldNotPerformException ex) {
             ExceptionPrinter.printHistory(ex, LOGGER, LogLevel.ERROR);
         }

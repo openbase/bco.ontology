@@ -133,7 +133,7 @@ public final class OntologyManagerController implements Launchable<Void>, VoidIn
 //            Registries.waitForData();
 //            UnitRemote colorableLightRemote = Units.getUnitByScope("//bad/colorablelight/deckenlampe_2/", true);
 //            new StateObservation(colorableLightRemote);
-//            MultiException.checkAndThrow("Input is invalid.", Preconditions.checkNotNull(null, null, ""));
+//            MultiException.checkAndThrow(() ->"Input is invalid.", Preconditions.checkNotNull(null, null, ""));
 
             //upload (add) ontModel
             OntModelHttp.addModelToServer(OntModelHandler.loadOntModelFromFile(null, null), OntConfig.getOntologyDbUrl(), 0);

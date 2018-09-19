@@ -70,7 +70,7 @@ public class OntStateChangeTypes {
             this.timestamp = Preconditions.Function.apply(OffsetDateTime::parse, timestamp, this, exceptionStack);
             this.stateValue = Preconditions.Supplier.get(stateValue::asResource, this, exceptionStack);
 
-            MultiException.checkAndThrow("Input argument invalid. Null or no resource type!", exceptionStack);
+            MultiException.checkAndThrow(() ->"Input argument invalid. Null or no resource type!", exceptionStack);
         }
 
         /**
@@ -127,7 +127,7 @@ public class OntStateChangeTypes {
                 }
             }
 
-            MultiException.checkAndThrow("Input argument(s) invalid. Null or no literal type!", exceptionStack);
+            MultiException.checkAndThrow(() ->"Input argument(s) invalid. Null or no literal type!", exceptionStack);
         }
 
         /**
@@ -201,7 +201,7 @@ public class OntStateChangeTypes {
                     exceptionStack)).orElse(0);
             this.stateValue = Preconditions.Supplier.get(stateValue::asResource, this, exceptionStack);
 
-            MultiException.checkAndThrow("Input is invalid.", exceptionStack);
+            MultiException.checkAndThrow(() ->"Input is invalid.", exceptionStack);
         }
 
         /**
@@ -293,7 +293,7 @@ public class OntStateChangeTypes {
                     exceptionStack)).orElse(0);
             this.stateValue = Preconditions.Supplier.get(stateValue::asLiteral, this, exceptionStack);
 
-            MultiException.checkAndThrow("Input is invalid.", exceptionStack);
+            MultiException.checkAndThrow(() ->"Input is invalid.", exceptionStack);
         }
 
         /**

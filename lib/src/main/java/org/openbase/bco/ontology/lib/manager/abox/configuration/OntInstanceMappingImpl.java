@@ -119,7 +119,7 @@ public class OntInstanceMappingImpl implements OntInstanceMapping {
         }
 
         try {
-            MultiException.checkAndThrow("There are incompletely unitTypes!", exceptionStack);
+            MultiException.checkAndThrow(() ->"There are incompletely unitTypes!", exceptionStack);
         } catch (MultiException ex) {
             ExceptionPrinter.printHistory(ex, LOGGER, LogLevel.ERROR);
         }
@@ -149,7 +149,7 @@ public class OntInstanceMappingImpl implements OntInstanceMapping {
         }
 
         try {
-            MultiException.checkAndThrow("There are incompletely stateTypes!", exceptionStack);
+            MultiException.checkAndThrow(() ->"There are incompletely stateTypes!", exceptionStack);
         } catch (MultiException ex) {
             ExceptionPrinter.printHistory(ex, LOGGER, LogLevel.ERROR);
         }
@@ -179,7 +179,7 @@ public class OntInstanceMappingImpl implements OntInstanceMapping {
         }
 
         try {
-            MultiException.checkAndThrow("There are incompletely serviceTypes!", exceptionStack);
+            MultiException.checkAndThrow(() ->"There are incompletely serviceTypes!", exceptionStack);
         } catch (MultiException ex) {
             ExceptionPrinter.printHistory(ex, LOGGER, LogLevel.ERROR);
         }
@@ -232,7 +232,7 @@ public class OntInstanceMappingImpl implements OntInstanceMapping {
         }
 
         try {
-            MultiException.checkAndThrow("There are incompletely units!", exceptionStack);
+            MultiException.checkAndThrow(() ->"There are incompletely units!", exceptionStack);
         } catch (MultiException ex) {
             ExceptionPrinter.printHistory(ex, LOGGER, LogLevel.ERROR);
         }
@@ -258,7 +258,7 @@ public class OntInstanceMappingImpl implements OntInstanceMapping {
         }
 
         try {
-            MultiException.checkAndThrow("There are incompletely services!", exceptionStack);
+            MultiException.checkAndThrow(() ->"There are incompletely services!", exceptionStack);
         } catch (MultiException ex) {
             ExceptionPrinter.printHistory(ex, LOGGER, LogLevel.ERROR);
         }
@@ -284,7 +284,7 @@ public class OntInstanceMappingImpl implements OntInstanceMapping {
         }
 
         try {
-            MultiException.checkAndThrow("There are incompletely states!", exceptionStack);
+            MultiException.checkAndThrow(() ->"There are incompletely states!", exceptionStack);
         } catch (MultiException ex) {
             ExceptionPrinter.printHistory(ex, LOGGER, LogLevel.ERROR);
         }

@@ -207,7 +207,7 @@ public class TriggerFactory implements Factory {
         }
 
         try {
-            MultiException.checkAndThrow("Could not create trigger, because at least one element of the trigger config is null!", exceptionStack);
+            MultiException.checkAndThrow(() ->"Could not create trigger, because at least one element of the trigger config is null!", exceptionStack);
         } catch (MultiException ex) {
             throw new InstantiationException(this, ex);
         }

@@ -354,7 +354,7 @@ public class DataAggregation {
             exceptionStack = MultiException.push(this, e, exceptionStack);
         }
 
-        MultiException.checkAndThrow("Could not perform aggregation!", exceptionStack);
+        MultiException.checkAndThrow(() ->"Could not perform aggregation!", exceptionStack);
 
         // sort ascending (old to young)
         stateChanges.sort(Comparator.comparing(OntStateChangeBuf::getTimestamp));

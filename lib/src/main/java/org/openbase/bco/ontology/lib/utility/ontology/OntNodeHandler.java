@@ -61,7 +61,7 @@ public interface OntNodeHandler {
 //        Preconditions.checkNotNull(stateChanges, null, "Input state changes can not be null.", exceptionStack);
 //        exceptionStack = Preconditions.checkNotNull(null, dataType, "Input state value type can not be null.", exceptionStack);
 
-//        MultiException.checkAndThrow("Input parameter invalid.", exceptionStack);
+//        MultiException.checkAndThrow(() ->"Input parameter invalid.", exceptionStack);
         final List<OntStateChangeBuf> stateChangeLiterals = new ArrayList<>();
 
         for (final OntStateChangeBuf stateChange : stateChanges) {
@@ -94,7 +94,7 @@ public interface OntNodeHandler {
             }
         }
 
-        MultiException.checkAndThrow("There is a /are literal/s with no name!", exceptionStack);
+        MultiException.checkAndThrow(() ->"There is a /are literal/s with no name!", exceptionStack);
         return stateChangeLiterals;
     }
 
@@ -124,7 +124,7 @@ public interface OntNodeHandler {
             }
         }
 
-        MultiException.checkAndThrow("There is a /are literal/s with no name!", exceptionStack);
+        MultiException.checkAndThrow(() ->"There is a /are literal/s with no name!", exceptionStack);
         return stateChangeLiterals;
     }
 

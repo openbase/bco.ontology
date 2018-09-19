@@ -996,7 +996,7 @@ public final class OntConfig {
         }
 
         try {
-            MultiException.checkAndThrow("Could not process all ontology participants correctly!", exceptionStack);
+            MultiException.checkAndThrow(() ->"Could not process all ontology participants correctly!", exceptionStack);
         }  catch (CouldNotPerformException ex) {
             ExceptionPrinter.printHistory("Please check OntConfig - names classes and properties", ex, LOGGER, LogLevel.ERROR);
         }

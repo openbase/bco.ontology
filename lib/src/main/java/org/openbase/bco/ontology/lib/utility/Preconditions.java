@@ -113,7 +113,7 @@ public interface Preconditions {
                 MultiException.push(source, e, exceptionStack);
             }
         }
-        MultiException.checkAndThrow("Input is invalid.", exceptionStack);
+        MultiException.checkAndThrow(() ->"Input is invalid.", exceptionStack);
     }
 
     /**

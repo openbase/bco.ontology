@@ -61,7 +61,7 @@ public interface SparqlUpdateExpression {
         }
 
         try {
-            MultiException.checkAndThrow("Some triple are null!", exceptionStack);
+            MultiException.checkAndThrow(() ->"Some triple are null!", exceptionStack);
         } catch (MultiException ex) {
             throw new NotAvailableException("Sparql update expression.", ex);
         }
@@ -107,7 +107,7 @@ public interface SparqlUpdateExpression {
         }
 
         try {
-            MultiException.checkAndThrow("Some triple are null!", exceptionStack);
+            MultiException.checkAndThrow(() ->"Some triple are null!", exceptionStack);
         } catch (MultiException ex) {
             throw new NotAvailableException("Sparql update expression.", ex);
         }
@@ -180,7 +180,7 @@ public interface SparqlUpdateExpression {
         }
 
         try {
-            MultiException.checkAndThrow("Some triple are null!", exceptionStack);
+            MultiException.checkAndThrow(() ->"Some triple are null!", exceptionStack);
         } catch (MultiException ex) {
             throw new NotAvailableException("Sparql update expression.", ex);
         }
@@ -253,7 +253,7 @@ public interface SparqlUpdateExpression {
         }
 
         try {
-            MultiException.checkAndThrow("Some triple are null!", exceptionStack);
+            MultiException.checkAndThrow(() ->"Some triple are null!", exceptionStack);
         } catch (MultiException ex) {
             throw new NotAvailableException("Sparql update expression.", ex);
         }
@@ -329,7 +329,7 @@ public interface SparqlUpdateExpression {
         }
 
         try {
-            MultiException.checkAndThrow("Some triple are null!", exceptionStack);
+            MultiException.checkAndThrow(() ->"Some triple are null!", exceptionStack);
         } catch (MultiException ex) {
             throw new NotAvailableException("Sparql update expression.", ex);
         }

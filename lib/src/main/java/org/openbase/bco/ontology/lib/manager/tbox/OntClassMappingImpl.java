@@ -85,7 +85,7 @@ public class OntClassMappingImpl implements OntClassMapping {
         }
 
         try {
-            MultiException.checkAndThrow("There are incompletely unit types!", exceptionStack);
+            MultiException.checkAndThrow(() ->"There are incompletely unit types!", exceptionStack);
         } catch (MultiException ex) {
             ExceptionPrinter.printHistory(ex, LOGGER, LogLevel.ERROR);
         }
@@ -118,7 +118,7 @@ public class OntClassMappingImpl implements OntClassMapping {
         triples.addAll(getConnectionTypeClasses(null));
 
         try {
-            MultiException.checkAndThrow("There are incompletely unit types!", exceptionStack);
+            MultiException.checkAndThrow(() ->"There are incompletely unit types!", exceptionStack);
         } catch (MultiException ex) {
             ExceptionPrinter.printHistory(ex, LOGGER, LogLevel.ERROR);
         }
@@ -164,7 +164,7 @@ public class OntClassMappingImpl implements OntClassMapping {
             }
 
             try {
-                MultiException.checkAndThrow("There are incompletely location types!", exceptionStack);
+                MultiException.checkAndThrow(() ->"There are incompletely location types!", exceptionStack);
             } catch (MultiException ex) {
                 ExceptionPrinter.printHistory(ex, LOGGER, LogLevel.ERROR);
             }
@@ -201,7 +201,7 @@ public class OntClassMappingImpl implements OntClassMapping {
             }
 
             try {
-                MultiException.checkAndThrow("There are incompletely connection types!", exceptionStack);
+                MultiException.checkAndThrow(() ->"There are incompletely connection types!", exceptionStack);
             } catch (MultiException ex) {
                 ExceptionPrinter.printHistory(ex, LOGGER, LogLevel.ERROR);
             }

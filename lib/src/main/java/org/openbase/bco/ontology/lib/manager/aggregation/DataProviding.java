@@ -111,7 +111,7 @@ public class DataProviding {
                 final String endTimestamp = Preconditions.BiFunction.apply(OntNodeHandler::getRDFLocalName,
                         querySolution, LAST_TIMESTAMP.getName(), this, exceptionStack);
 
-                MultiException.checkAndThrow("Invalid parameters or variables in sparql query.", exceptionStack);
+                MultiException.checkAndThrow(() ->"Invalid parameters or variables in sparql query.", exceptionStack);
 
                 // cast string to offsetDateTime object
                 final OffsetDateTime strtDateTime = Preconditions.Function.apply(OffsetDateTime::parse, strtTimestamp);
@@ -170,7 +170,7 @@ public class DataProviding {
                 final String providerService = Preconditions.BiFunction.apply(OntNodeHandler::getRDFLocalName,
                         querySolution, PROVIDER_SERVICE.getName(), this, exceptionStack);
 
-                MultiException.checkAndThrow("Invalid parameters or variables in sparql query.", exceptionStack);
+                MultiException.checkAndThrow(() ->"Invalid parameters or variables in sparql query.", exceptionStack);
 
                 final RDFNode stateValue = querySolution.get(STATE_VALUE.getName());
                 Preconditions.checkNotNull(nextObservationId,"NextObservationId is null.");
@@ -266,7 +266,7 @@ public class DataProviding {
                         querySolution, QUANTITY.getName(), this, exceptionStack);
 
                 // the shared aggregated values shouldn't be null, because they are basic information
-                MultiException.checkAndThrow("Invalid parameters or variables in sparql query.", exceptionStack);
+                MultiException.checkAndThrow(() ->"Invalid parameters or variables in sparql query.", exceptionStack);
 
                 if (stateValue.isLiteral()) {
                     // state value based on (aggregated) continuous. Create and add to data structure ontUnits
@@ -299,7 +299,7 @@ public class DataProviding {
                 querySolution, MEAN.getName(), this, exceptionStack);
 
         // depend on the classification the aggregated values shouldn't be null
-        MultiException.checkAndThrow("Invalid parameters or variables in sparql query.", exceptionStack);
+        MultiException.checkAndThrow(() ->"Invalid parameters or variables in sparql query.", exceptionStack);
 
         final OntStateChange ontStateChange = OntStateChange.asAggregatedContinuous(mean, variance, standardDeviation,
                 timeWeighting, quantity, stateValue);
@@ -317,7 +317,7 @@ public class DataProviding {
                 querySolution, ACTIVITY_TIME.getName(), this, exceptionStack);
 
         // depend on the classification the aggregated values shouldn't be null
-        MultiException.checkAndThrow("Invalid parameters or variables in sparql query.", exceptionStack);
+        MultiException.checkAndThrow(() ->"Invalid parameters or variables in sparql query.", exceptionStack);
 
         final OntStateChange ontStateChange = OntStateChange.asAggregatedDiscrete(timeWeighting, activityTime, quantity,
                 stateValue);

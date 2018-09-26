@@ -23,7 +23,7 @@ package org.openbase.bco.ontology.lib.manager.datasource;
  */
 
 import org.openbase.bco.dal.lib.layer.unit.UnitRemote;
-import org.openbase.bco.dal.remote.unit.Units;
+import org.openbase.bco.dal.remote.layer.unit.Units;
 import org.openbase.bco.ontology.lib.OntologyManagerController;
 import org.openbase.bco.ontology.lib.manager.abox.observation.StateObservation;
 import org.openbase.jul.exception.CouldNotPerformException;
@@ -40,7 +40,6 @@ import rst.domotic.unit.UnitTemplateType.UnitTemplate.UnitType;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 /**
  * @author agatting on 07.02.17.

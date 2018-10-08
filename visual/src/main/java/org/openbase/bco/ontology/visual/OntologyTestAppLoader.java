@@ -27,17 +27,7 @@ import org.openbase.jul.visual.javafx.launch.AbstractFXMLApplication;
 public class OntologyTestAppLoader extends AbstractFXMLApplication {
 
     public OntologyTestAppLoader() {
-        super();
-    }
-
-    @Override
-    protected String getDefaultCSS() {
-        return "/styles/main-style.css";
-    }
-
-    @Override
-    protected String getDefaultFXML() {
-        return "org/openbase/bco/ontology/visual/OntologyTriggerMainViewController.fxml";
+        super(OntologyTriggerMainViewController.class);
     }
 
     @Override

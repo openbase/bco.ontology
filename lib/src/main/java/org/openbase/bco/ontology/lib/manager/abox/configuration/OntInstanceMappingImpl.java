@@ -199,7 +199,7 @@ public class OntInstanceMappingImpl implements OntInstanceMapping {
                 continue;
             }
             try {
-                for (final Object stateValue : Services.getServiceStateValues(serviceType).toArray()) {
+                for (final Object stateValue : Services.getServiceStateEnumValues(serviceType).toArray()) {
                     final String stateValueName = StringModifier.firstCharToLowerCase(StringModifier.getCamelCaseName(stateValue.toString()));
 
                     if (stateValueName.equalsIgnoreCase("unknown")) {

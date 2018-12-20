@@ -36,10 +36,10 @@ import org.openbase.jul.exception.MultiException;
 import org.openbase.jul.exception.NotAvailableException;
 import org.topbraid.spin.arq.ARQ2SPIN;
 import org.topbraid.spin.arq.ARQFactory;
-import rst.domotic.ontology.OntologyChangeType.OntologyChange;
-import rst.domotic.ontology.OntologyChangeType.OntologyChange.Category;
-import rst.domotic.service.ServiceTemplateType.ServiceTemplate.ServiceType;
-import rst.domotic.unit.UnitTemplateType.UnitTemplate.UnitType;
+import org.openbase.type.domotic.ontology.OntologyChangeType.OntologyChange;
+import org.openbase.type.domotic.ontology.OntologyChangeType.OntologyChange.Category;
+import org.openbase.type.domotic.service.ServiceTemplateType.ServiceTemplate.ServiceType;
+import org.openbase.type.domotic.unit.UnitTemplateType.UnitTemplate.UnitType;
 
 import java.util.ArrayList;
 import java.util.List;

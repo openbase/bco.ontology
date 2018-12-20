@@ -40,8 +40,8 @@ import org.openbase.jul.pattern.ObservableImpl;
 import org.openbase.jul.pattern.provider.DataProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import rst.domotic.ontology.OntologyChangeType.OntologyChange;
-import rst.domotic.ontology.TriggerConfigType.TriggerConfig;
+import org.openbase.type.domotic.ontology.OntologyChangeType.OntologyChange;
+import org.openbase.type.domotic.ontology.TriggerConfigType.TriggerConfig;
 
 /**
  * @author <a href="mailto:divine@openbase.org">Divine Threepwood</a>

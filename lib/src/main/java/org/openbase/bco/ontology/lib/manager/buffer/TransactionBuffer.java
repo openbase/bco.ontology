@@ -33,7 +33,7 @@ import org.openbase.jul.extension.rsb.iface.RSBInformer;
 import org.openbase.jul.schedule.GlobalScheduledExecutorService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import rst.domotic.ontology.OntologyChangeType.OntologyChange;
+import org.openbase.type.domotic.ontology.OntologyChangeType.OntologyChange;
 
 import java.io.IOException;
 import java.util.Queue;

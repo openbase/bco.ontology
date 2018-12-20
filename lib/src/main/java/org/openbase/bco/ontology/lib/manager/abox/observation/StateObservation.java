@@ -53,10 +53,10 @@ import org.openbase.jul.pattern.provider.DataProvider;
 import org.openbase.jul.schedule.RecurrenceEventFilter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import rst.domotic.ontology.OntologyChangeType.OntologyChange;
-import rst.domotic.service.ServiceTemplateType.ServiceTemplate.ServiceType;
-import rst.domotic.unit.UnitTemplateType.UnitTemplate.UnitType;
-import rst.timing.TimestampType;
+import org.openbase.type.domotic.ontology.OntologyChangeType.OntologyChange;
+import org.openbase.type.domotic.service.ServiceTemplateType.ServiceTemplate.ServiceType;
+import org.openbase.type.domotic.unit.UnitTemplateType.UnitTemplate.UnitType;
+import org.openbase.type.timing.TimestampType;
 
 import java.lang.reflect.Method;
 import java.sql.Timestamp;

@@ -29,7 +29,7 @@ import javafx.util.Pair;
 import org.openbase.bco.ontology.lib.trigger.sparql.AskQueryExample.QueryExample;
 import org.openbase.jul.visual.javafx.control.AbstractFXController;
 import org.openbase.jul.visual.javafx.fxml.FXMLProcessor;
-import rst.domotic.ontology.TriggerConfigType.TriggerConfig;
+import org.openbase.type.domotic.ontology.TriggerConfigType.TriggerConfig;
 
 public class OntologyTriggerMainViewController extends AbstractFXController {
 

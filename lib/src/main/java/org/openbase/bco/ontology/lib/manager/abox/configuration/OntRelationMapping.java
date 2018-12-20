@@ -24,8 +24,8 @@ package org.openbase.bco.ontology.lib.manager.abox.configuration;
 
 import org.openbase.bco.ontology.lib.utility.sparql.RdfTriple;
 import org.openbase.jul.exception.NotAvailableException;
-import rst.domotic.service.ServiceTemplateType.ServiceTemplate.ServiceType;
-import rst.domotic.unit.UnitConfigType.UnitConfig;
+import org.openbase.type.domotic.service.ServiceTemplateType.ServiceTemplate.ServiceType;
+import org.openbase.type.domotic.unit.UnitConfigType.UnitConfig;
 
 import java.util.List;
 

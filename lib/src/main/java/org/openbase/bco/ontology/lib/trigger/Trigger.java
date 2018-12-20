@@ -25,9 +25,9 @@ package org.openbase.bco.ontology.lib.trigger;
 import org.openbase.jul.iface.Manageable;
 import org.openbase.jul.pattern.Observer;
 import org.openbase.jul.pattern.provider.DataProvider;
-import rst.domotic.state.ActivationStateType.ActivationState;
-import rst.domotic.ontology.TriggerConfigType.TriggerConfig;
-import rst.domotic.state.ActivationStateType.ActivationState.State;
+import org.openbase.type.domotic.state.ActivationStateType.ActivationState;
+import org.openbase.type.domotic.ontology.TriggerConfigType.TriggerConfig;
+import org.openbase.type.domotic.state.ActivationStateType.ActivationState.State;
 
 /**
  * @author agatting on 21.12.16.

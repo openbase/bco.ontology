@@ -50,9 +50,9 @@ import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 import rsb.converter.DefaultConverterRepository;
 import rsb.converter.ProtocolBufferConverter;
-import rst.domotic.ontology.OntologyChangeType.OntologyChange;
-import rst.domotic.registry.UnitRegistryDataType.UnitRegistryData;
-import rst.domotic.unit.UnitConfigType.UnitConfig;
+import org.openbase.type.domotic.ontology.OntologyChangeType.OntologyChange;
+import org.openbase.type.domotic.registry.UnitRegistryDataType.UnitRegistryData;
+import org.openbase.type.domotic.unit.UnitConfigType.UnitConfig;
 
 import java.util.ArrayList;
 import java.util.List;

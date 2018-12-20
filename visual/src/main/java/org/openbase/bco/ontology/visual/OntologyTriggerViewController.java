@@ -34,9 +34,9 @@ import org.openbase.jul.pattern.Observable;
 import org.openbase.jul.pattern.provider.DataProvider;
 import org.openbase.jul.visual.javafx.control.AbstractFXController;
 import org.slf4j.LoggerFactory;
-import rst.domotic.ontology.TriggerConfigType.TriggerConfig;
-import rst.domotic.state.ActivationStateType.ActivationState;
-import rst.domotic.state.ActivationStateType.ActivationState.State;
+import org.openbase.type.domotic.ontology.TriggerConfigType.TriggerConfig;
+import org.openbase.type.domotic.state.ActivationStateType.ActivationState;
+import org.openbase.type.domotic.state.ActivationStateType.ActivationState.State;
 
 public class OntologyTriggerViewController extends AbstractFXController {
 

@@ -37,7 +37,7 @@ import org.openbase.jul.pattern.Observer;
 import org.openbase.jul.pattern.Remote;
 import org.openbase.jul.pattern.Remote.ConnectionState;
 import org.openbase.jul.pattern.provider.DataProvider;
-import rst.domotic.ontology.OntologyChangeType.OntologyChange;
+import org.openbase.type.domotic.ontology.OntologyChangeType.OntologyChange;
 
 import java.io.IOException;
 import java.io.InputStream;

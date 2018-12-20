@@ -54,10 +54,10 @@ import org.openbase.jul.pattern.Observer;
 import org.openbase.jul.schedule.Stopwatch;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import rst.domotic.ontology.OntologyChangeType.OntologyChange;
-import rst.domotic.ontology.TriggerConfigType.TriggerConfig;
-import rst.domotic.state.PowerStateType.PowerState;
-import rst.domotic.unit.UnitTemplateType.UnitTemplate.UnitType;
+import org.openbase.type.domotic.ontology.OntologyChangeType.OntologyChange;
+import org.openbase.type.domotic.ontology.TriggerConfigType.TriggerConfig;
+import org.openbase.type.domotic.state.PowerStateType.PowerState;
+import org.openbase.type.domotic.unit.UnitTemplateType.UnitTemplate.UnitType;
 
 import java.io.*;
 import java.util.ArrayList;

@@ -1,11 +1,8 @@
 package org.openbase.bco.ontology.lib.trigger;
 
-import org.openbase.bco.ontology.lib.trigger.Trigger;
-import org.openbase.bco.ontology.lib.trigger.TriggerFactory;
 import org.openbase.jul.exception.CouldNotPerformException;
 import org.openbase.jul.exception.printer.ExceptionPrinter;
-import org.openbase.jul.extension.rst.processing.TimestampProcessor;
-import org.openbase.jul.pattern.Observable;
+import org.openbase.jul.extension.type.processing.TimestampProcessor;
 import org.openbase.jul.pattern.Observer;
 import org.slf4j.LoggerFactory;
 import org.openbase.type.domotic.ontology.TriggerConfigType.TriggerConfig;

@@ -27,7 +27,7 @@ import org.openbase.bco.ontology.lib.jp.JPOntologyMode;
 import org.openbase.bco.ontology.lib.jp.JPOntologyPingURL;
 import org.openbase.bco.ontology.lib.jp.JPOntologyRSBScope;
 import org.openbase.bco.ontology.lib.jp.JPOntologyURL;
-import org.openbase.bco.registry.lib.BCO;
+import org.openbase.bco.authentication.lib.BCO;
 import org.openbase.jul.pattern.launch.AbstractLauncher;
 import org.openbase.jps.core.JPService;
 import org.openbase.jps.preset.JPDebugMode;

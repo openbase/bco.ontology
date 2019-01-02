@@ -13,7 +13,7 @@ import org.openbase.jul.exception.InstantiationException;
  * #%L
  * BCO Ontology Library
  * %%
- * Copyright (C) 2016 - 2018 openbase.org
+ * Copyright (C) 2016 - 2019 openbase.org
  * %%
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as

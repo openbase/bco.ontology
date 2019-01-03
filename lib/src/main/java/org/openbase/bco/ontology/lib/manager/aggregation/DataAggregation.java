@@ -240,7 +240,7 @@ public class DataAggregation {
 
             final List<String> stateValuesString = getStateValues(stateChanges);
             final List<Double> stateValuesDouble = convertStringToDouble(stateValuesString);
-            final double stateValuesArray[] = convertToArray(stateValuesDouble);
+            final double[] stateValuesArray = convertToArray(stateValuesDouble);
 
             this.mean = calcMean(stateValuesArray);
             this.variance = calcVariance(stateValuesArray);
@@ -428,15 +428,15 @@ public class DataAggregation {
         return DoubleStream.of(timeWeightingArray).sum() / periodLength;
     }
 
-    private double calcVariance(final double stateValuesArray[]) {
+    private double calcVariance(final double[] stateValuesArray) {
         return StatUtils.variance(stateValuesArray);
     }
 
-    private double calcStandardDeviation(final double stateValuesArray[]) {
+    private double calcStandardDeviation(final double[] stateValuesArray) {
         return FastMath.sqrt(StatUtils.variance(stateValuesArray));
     }
 
-    private double calcMean(final double stateValuesArray[]) {
+    private double calcMean(final double[] stateValuesArray) {
         return StatUtils.mean(stateValuesArray);
     }
 
@@ -445,7 +445,7 @@ public class DataAggregation {
     }
 
     private double[] convertToArray(final List<Double> stateValues) {
-        final double stateValuesArray[] = new double[stateValues.size()];
+        final double[] stateValuesArray = new double[stateValues.size()];
 
         for (int i = 0; i < stateValues.size(); i++) {
             stateValuesArray[i] = stateValues.get(i);

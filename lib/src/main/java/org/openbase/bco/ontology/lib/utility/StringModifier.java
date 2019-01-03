@@ -98,7 +98,7 @@ public interface StringModifier {
         Preconditions.checkNotNull(ontologyNodeName, "Couldn't get local name, cause input uri is null!");
 
         if (ontologyNodeName.startsWith(OntExpr.NS.getName())) {
-            return ontologyNodeName.substring(OntExpr.NS.getName().length(), ontologyNodeName.length());
+            return ontologyNodeName.substring(OntExpr.NS.getName().length());
         }
         if (ontologyNodeName.contains("#")) {
             return ontologyNodeName.substring(ontologyNodeName.indexOf("#") + 1);

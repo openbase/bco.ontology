@@ -229,7 +229,7 @@ public class Measurement {
     }
 
     private double[] convertToArray(final List<Long> stateValues) {
-        final double stateValuesArray[] = new double[stateValues.size()];
+        final double[] stateValuesArray = new double[stateValues.size()];
 
         for (int i = 0; i < stateValues.size(); i++) {
             stateValuesArray[i] = stateValues.get(i).doubleValue();

@@ -238,7 +238,7 @@ public class StateSources {
         stateSources.add(new RdfNodeObject(new ArrayList<String>() {{
             add(batteryStateVal);
         }}, false));
-        final String batteryLevelVal = "\"" + String.valueOf(batteryState.getLevel()) + "\"^^NS:Percent";
+        final String batteryLevelVal = "\"" + batteryState.getLevel() + "\"^^NS:Percent";
         stateSources.add(new RdfNodeObject(new ArrayList<String>() {{
             add(batteryLevelVal);
         }}, true));
@@ -261,7 +261,7 @@ public class StateSources {
         stateSources.add(new RdfNodeObject(new ArrayList<String>() {{
             add(blindMovementStateVal);
         }}, false));
-        final String blindOpeningRationVal = "\"" + String.valueOf(blindState.getOpeningRatio()) + "\"^^NS:Percent";
+        final String blindOpeningRationVal = "\"" + blindState.getOpeningRatio() + "\"^^NS:Percent";
         stateSources.add(new RdfNodeObject(new ArrayList<String>() {{
             add(blindOpeningRationVal);
         }}, true));
@@ -283,7 +283,7 @@ public class StateSources {
 
         switch (dataUnit) {
             case PERCENT:
-                final String brightnessVal = "\"" + String.valueOf(brightnessState.getBrightness()) + "\"^^NS:Percent";
+                final String brightnessVal = "\"" + brightnessState.getBrightness() + "\"^^NS:Percent";
                 stateSources.add(new RdfNodeObject(new ArrayList<String>() {{
                     add(brightnessVal);
                 }}, true));
@@ -401,15 +401,15 @@ public class StateSources {
     private List<RdfNodeObject> emphasisStateSources(final EmphasisState emphasisState) {
 
         final List<RdfNodeObject> stateSources = new ArrayList<>();
-        final String comfortVal = "\"" + String.valueOf(emphasisState.getComfort()) + "\"^^xsd:double";
+        final String comfortVal = "\"" + emphasisState.getComfort() + "\"^^xsd:double";
         stateSources.add(new RdfNodeObject(new ArrayList<String>() {{
             add(comfortVal);
         }}, true));
-        final String economyVal = "\"" + String.valueOf(emphasisState.getEconomy()) + "\"^^xsd:double";
+        final String economyVal = "\"" + emphasisState.getEconomy() + "\"^^xsd:double";
         stateSources.add(new RdfNodeObject(new ArrayList<String>() {{
             add(economyVal);
         }}, true));
-        final String securityVal = "\"" + String.valueOf(emphasisState.getSecurity()) + "\"^^xsd:double";
+        final String securityVal = "\"" + emphasisState.getSecurity() + "\"^^xsd:double";
         stateSources.add(new RdfNodeObject(new ArrayList<String>() {{
             add(securityVal);
         }}, true));
@@ -445,7 +445,7 @@ public class StateSources {
     private List<RdfNodeObject> handleStateSources(final HandleState handleState) {
 
         final List<RdfNodeObject> stateSources = new ArrayList<>();
-        final String handlePositionVal = "\"" + String.valueOf(handleState.getPosition()) + "\"^^xsd:double";
+        final String handlePositionVal = "\"" + handleState.getPosition() + "\"^^xsd:double";
         stateSources.add(new RdfNodeObject(new ArrayList<String>() {{
             add(handlePositionVal);
         }}, true));
@@ -467,7 +467,7 @@ public class StateSources {
 
         switch (dataUnit) {
             case LUX:
-                final String illuminanceStateVal = "\"" + String.valueOf(illuminanceState.getIlluminance()) + "\"^^NS:Lux";
+                final String illuminanceStateVal = "\"" + illuminanceState.getIlluminance() + "\"^^NS:Lux";
                 stateSources.add(new RdfNodeObject(new ArrayList<String>() {{
                     add(illuminanceStateVal);
                 }}, true));
@@ -548,9 +548,9 @@ public class StateSources {
     private List<RdfNodeObject> powerConsumptionStateSources(final PowerConsumptionState powerConsumptionState) {
 
         final List<RdfNodeObject> stateSources = new ArrayList<>();
-        final String voltageVal = "\"" + String.valueOf(powerConsumptionState.getVoltage()) + "\"^^NS:Voltage";
-        final String consumptionVal = "\"" + String.valueOf(powerConsumptionState.getConsumption()) + "\"^^NS:Watt";
-        final String currentVal = "\"" + String.valueOf(powerConsumptionState.getCurrent()) + "\"^^NS:Ampere";
+        final String voltageVal = "\"" + powerConsumptionState.getVoltage() + "\"^^NS:Voltage";
+        final String consumptionVal = "\"" + powerConsumptionState.getConsumption() + "\"^^NS:Watt";
+        final String currentVal = "\"" + powerConsumptionState.getCurrent() + "\"^^NS:Ampere";
         stateSources.add(new RdfNodeObject(new ArrayList<String>() {{
             addAll(Arrays.asList(voltageVal, consumptionVal, currentVal));
         }}, true));
@@ -626,7 +626,7 @@ public class StateSources {
         stateSources.add(new RdfNodeObject(new ArrayList<String>() {{
             add(smokeStateVal);
         }}, false));
-        final String smokeLevelVal = "\"" + String.valueOf(smokeState.getSmokeLevel()) + "\"^^NS:Percent";
+        final String smokeLevelVal = "\"" + smokeState.getSmokeLevel() + "\"^^NS:Percent";
         stateSources.add(new RdfNodeObject(new ArrayList<String>() {{
             add(smokeLevelVal);
         }}, true));
@@ -662,7 +662,7 @@ public class StateSources {
     private List<RdfNodeObject> switchStateSources(final SwitchState switchState) {
 
         final List<RdfNodeObject> stateSources = new ArrayList<>();
-        final String switchPositionVal = "\"" + String.valueOf(switchState.getPosition()) + "\"^^xsd:double";
+        final String switchPositionVal = "\"" + switchState.getPosition() + "\"^^xsd:double";
         stateSources.add(new RdfNodeObject(new ArrayList<String>() {{
             add(switchPositionVal);
         }}, true));
@@ -705,21 +705,21 @@ public class StateSources {
         switch (dataUnit) {
             case CELSIUS:
                 temperature = temperatureState.getTemperature();
-                temperatureVal = "\"" + String.valueOf(temperature) + "\"^^NS:Celsius";
+                temperatureVal = "\"" + temperature + "\"^^NS:Celsius";
                 stateSources.add(new RdfNodeObject(new ArrayList<String>() {{
                     add(temperatureVal);
                 }}, true));
                 break;
             case FAHRENHEIT:
                 temperature = ((temperatureState.getTemperature() - OntConfig.FREEZING_POINT_FAHRENHEIT) / OntConfig.FAHRENHEIT_DIVISOR);
-                temperatureVal = "\"" + String.valueOf(temperature) + "\"^^NS:Celsius";
+                temperatureVal = "\"" + temperature + "\"^^NS:Celsius";
                 stateSources.add(new RdfNodeObject(new ArrayList<String>() {{
                     add(temperatureVal);
                 }}, true));
                 break;
             case KELVIN:
                 temperature = temperatureState.getTemperature() - OntConfig.ABSOLUTE_ZERO_POINT_CELSIUS;
-                temperatureVal = "\"" + String.valueOf(temperature) + "\"^^NS:Celsius";
+                temperatureVal = "\"" + temperature + "\"^^NS:Celsius";
                 stateSources.add(new RdfNodeObject(new ArrayList<String>() {{
                     add(temperatureVal);
                 }}, true));

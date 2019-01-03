@@ -33,8 +33,8 @@ import org.openbase.jul.exception.NotAvailableException;
 import org.openbase.jul.exception.printer.ExceptionPrinter;
 import org.openbase.jul.exception.printer.LogLevel;
 import org.openbase.jul.pattern.ObservableImpl;
-import org.openbase.jul.pattern.Remote;
-import org.openbase.jul.pattern.Remote.ConnectionState;
+import org.openbase.jul.pattern.controller.Remote;
+import org.openbase.type.domotic.state.ConnectionStateType.ConnectionState;
 import org.openbase.jul.schedule.GlobalScheduledExecutorService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,7 +50,7 @@ public final class ServerConnection {
     /**
      * Informs about the server connection state.
      */
-    public static final ObservableImpl<Remote, ConnectionState> SERVER_STATE_OBSERVABLE = new ObservableImpl<>(false);
+    public static final ObservableImpl<Remote, ConnectionState.State> SERVER_STATE_OBSERVABLE = new ObservableImpl<>(false);
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ServerConnection.class);
 
@@ -72,9 +72,9 @@ public final class ServerConnection {
                     final HttpResponse httpResponse = httpclient.execute(httpGet);
 
                     SparqlHttp.checkHttpRequest(httpResponse, null);
-                    SERVER_STATE_OBSERVABLE.notifyObservers(ConnectionState.CONNECTED);
+                    SERVER_STATE_OBSERVABLE.notifyObservers(ConnectionState.State.CONNECTED);
                 } catch (IOException | CouldNotPerformException ex) {
-                    SERVER_STATE_OBSERVABLE.notifyObservers(ConnectionState.DISCONNECTED);
+                    SERVER_STATE_OBSERVABLE.notifyObservers(ConnectionState.State.DISCONNECTED);
                 }
             } catch (CouldNotPerformException ex) {
                 ExceptionPrinter.printHistory(ex, LOGGER, LogLevel.ERROR);

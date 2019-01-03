@@ -31,11 +31,10 @@ import org.openbase.jul.exception.CouldNotPerformException;
 import org.openbase.jul.exception.InitializationException;
 import org.openbase.jul.exception.printer.ExceptionPrinter;
 import org.openbase.jul.exception.printer.LogLevel;
-import org.openbase.jul.pattern.Observable;
 import org.openbase.jul.pattern.ObservableImpl;
 import org.openbase.jul.pattern.Observer;
-import org.openbase.jul.pattern.Remote;
-import org.openbase.jul.pattern.Remote.ConnectionState;
+import org.openbase.jul.pattern.controller.Remote;
+import org.openbase.type.domotic.state.ConnectionStateType.ConnectionState;
 import org.openbase.jul.pattern.provider.DataProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,7 +44,6 @@ import org.openbase.type.domotic.ontology.OntologyChangeType.OntologyChange;
 import org.openbase.type.domotic.ontology.TriggerConfigType.TriggerConfig;
 import org.openbase.type.domotic.service.ServiceTemplateType.ServiceTemplate.ServiceType;
 import org.openbase.type.domotic.state.ActivationStateType.ActivationState;
-import org.openbase.type.domotic.state.ActivationStateType.ActivationState.State;
 import org.openbase.type.domotic.unit.UnitTemplateType.UnitTemplate.UnitType;
 
 /**
@@ -68,9 +66,9 @@ public class TriggerImpl implements Trigger {
     private boolean active;
     private TriggerConfig triggerConfig;
     private final OntologyRemote ontologyRemote;
-    private final Observer<Remote, ConnectionState> connectionObserver;
+    private final Observer<Remote, ConnectionState.State> connectionObserver;
     private final Observer<DataProvider<OntologyChange>, OntologyChange> ontologyObserver;
-    private ConnectionState hasConnection;
+    private ConnectionState.State hasConnection;
     private final OntologyChange.Category category;
 
     /**
@@ -80,7 +78,7 @@ public class TriggerImpl implements Trigger {
      */
     public TriggerImpl(final OntologyRemote ontologyRemote) {
         this.category = OntologyChange.Category.UNKNOWN; //TODO
-        this.hasConnection = ConnectionState.UNKNOWN;
+        this.hasConnection = ConnectionState.State.UNKNOWN;
         this.ontologyRemote = ontologyRemote;
         this.activationObservable = new ObservableImpl<Trigger, ActivationState.State>(true, this);
 
@@ -89,20 +87,20 @@ public class TriggerImpl implements Trigger {
         this.connectionObserver = (source, data) -> {
             switch (data) {
                 case CONNECTED:
-                    hasConnection = ConnectionState.CONNECTED;
+                    hasConnection = ConnectionState.State.CONNECTED;
                     notifyOntologyChange(ontologyChange);
                     break;
                 case DISCONNECTED:
-                    hasConnection = ConnectionState.DISCONNECTED;
+                    hasConnection = ConnectionState.State.DISCONNECTED;
                     activationObservable.notifyObservers(ActivationState.State.UNKNOWN);
                 case UNKNOWN:
-                    hasConnection = ConnectionState.UNKNOWN;
+                    hasConnection = ConnectionState.State.UNKNOWN;
                     activationObservable.notifyObservers(ActivationState.State.UNKNOWN);
                 default:
             }
         };
         this.ontologyObserver = (source, data) -> {
-            if (!hasConnection.equals(ConnectionState.DISCONNECTED)) {
+            if (!hasConnection.equals(ConnectionState.State.DISCONNECTED)) {
 //                if (Measurement.measurementWatch.isRunning()) {
 //                    Measurement.measurementWatch.stop();
 //                    Measurement.triggerImplFromRSB.add(Measurement.measurementWatch.getTime());

@@ -23,8 +23,8 @@ package org.openbase.bco.ontology.lib.commun.trigger;
  */
 
 import org.openbase.jul.pattern.Observer;
-import org.openbase.jul.pattern.Remote;
-import org.openbase.jul.pattern.Remote.ConnectionState;
+import org.openbase.jul.pattern.controller.Remote;
+import org.openbase.type.domotic.state.ConnectionStateType.ConnectionState;
 import org.openbase.jul.pattern.provider.DataProvider;
 import org.openbase.type.domotic.ontology.OntologyChangeType.OntologyChange;
 
@@ -49,14 +49,14 @@ public interface OntologyRemote {
      *
      * @param observer is the object, which should be informed.
      */
-    void addConnectionStateObserver(final Observer<Remote, ConnectionState> observer);
+    void addConnectionStateObserver(final Observer<Remote, ConnectionState.State> observer);
 
     /**
      * Method removes the observer from the server connection state observable.
      *
      * @param observer is the object, which should not be informed anymore.
      */
-    void removeConnectionStateObserver(final Observer<Remote, ConnectionState> observer);
+    void removeConnectionStateObserver(final Observer<Remote, ConnectionState.State> observer);
 
     /**
      * Method adds the observer to the ontology change observable.

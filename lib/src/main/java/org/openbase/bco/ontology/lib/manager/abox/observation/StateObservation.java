@@ -46,8 +46,8 @@ import org.openbase.jul.extension.rsb.com.RSBFactoryImpl;
 import org.openbase.jul.extension.rsb.iface.RSBInformer;
 import org.openbase.jul.extension.type.processing.TimestampJavaTimeTransform;
 import org.openbase.jul.pattern.Observer;
-import org.openbase.jul.pattern.Remote;
-import org.openbase.jul.pattern.Remote.ConnectionState;
+import org.openbase.jul.pattern.controller.Remote;
+import org.openbase.type.domotic.state.ConnectionStateType.ConnectionState;
 import org.openbase.jul.pattern.provider.DataProvider;
 import org.openbase.jul.schedule.RecurrenceEventFilter;
 import org.slf4j.Logger;
@@ -136,7 +136,7 @@ public class StateObservation<T> extends StateSources {
             unitRemote.addServiceStateObserver(OntConfig.SERVICE_NAME_MAP.get(serviceTypeName), serviceStateObserver);
         }
 
-        final Observer<Remote, ConnectionState> unitRemoteConnectionObserver = (final Remote source, final ConnectionState connectionState)
+        final Observer<Remote, ConnectionState.State> unitRemoteConnectionObserver = (final Remote source, final ConnectionState.State connectionState)
                     -> connectionPhase.identifyConnectionState(connectionState);
         unitRemote.addConnectionStateObserver(unitRemoteConnectionObserver);
     }

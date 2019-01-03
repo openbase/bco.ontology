@@ -34,8 +34,8 @@ import org.openbase.bco.ontology.lib.commun.monitor.ServerConnection;
 import org.openbase.bco.ontology.lib.system.config.OntConfig;
 import org.openbase.bco.ontology.lib.trigger.TriggerFactory;
 import org.openbase.jul.pattern.Observer;
-import org.openbase.jul.pattern.Remote;
-import org.openbase.jul.pattern.Remote.ConnectionState;
+import org.openbase.jul.pattern.controller.Remote;
+import org.openbase.type.domotic.state.ConnectionStateType.ConnectionState;
 import org.openbase.jul.pattern.provider.DataProvider;
 import org.openbase.type.domotic.ontology.OntologyChangeType.OntologyChange;
 
@@ -77,7 +77,7 @@ public class OntologyRemoteImpl implements OntologyRemote {
      * {@inheritDoc}
      */
     @Override
-    public void addConnectionStateObserver(final Observer<Remote, ConnectionState> observer) {
+    public void addConnectionStateObserver(final Observer<Remote, ConnectionState.State> observer) {
         ServerConnection.SERVER_STATE_OBSERVABLE.addObserver(observer);
     }
 
@@ -85,7 +85,7 @@ public class OntologyRemoteImpl implements OntologyRemote {
      * {@inheritDoc}
      */
     @Override
-    public void removeConnectionStateObserver(final Observer<Remote, ConnectionState> observer) {
+    public void removeConnectionStateObserver(final Observer<Remote, ConnectionState.State> observer) {
         ServerConnection.SERVER_STATE_OBSERVABLE.removeObserver(observer);
     }
 

@@ -24,7 +24,6 @@ package org.openbase.bco.ontology.lib.manager.aggregation.datatype;
 
 import org.openbase.bco.ontology.lib.utility.Preconditions;
 import org.openbase.jul.exception.MultiException;
-import org.openbase.jul.exception.NotAvailableException;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -25,13 +25,10 @@ package org.openbase.bco.ontology.lib.trigger.sparql;
 import org.openbase.bco.ontology.lib.trigger.Trigger;
 import org.openbase.bco.ontology.lib.trigger.TriggerFactory;
 import org.openbase.jul.exception.CouldNotPerformException;
-import org.openbase.jul.pattern.Observable;
-import org.openbase.jul.pattern.provider.DataProvider;
 import org.openbase.type.domotic.ontology.OntologyChangeType.OntologyChange;
 import org.openbase.type.domotic.ontology.TriggerConfigType.TriggerConfig;
 import org.openbase.type.domotic.service.ServiceTemplateType.ServiceTemplate.ServiceType;
 import org.openbase.type.domotic.state.ActivationStateType.ActivationState;
-import org.openbase.type.domotic.state.ActivationStateType.ActivationState.State;
 import org.openbase.type.domotic.unit.UnitTemplateType.UnitTemplate.UnitType;
 
 import java.time.OffsetDateTime;

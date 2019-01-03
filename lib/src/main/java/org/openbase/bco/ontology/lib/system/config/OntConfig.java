@@ -27,7 +27,6 @@ import org.openbase.bco.ontology.lib.jp.JPOntologyDBURL;
 import org.openbase.bco.ontology.lib.jp.JPOntologyMode;
 import org.openbase.bco.ontology.lib.jp.JPOntologyPingURL;
 import org.openbase.bco.ontology.lib.jp.JPOntologyRSBScope;
-import org.openbase.bco.ontology.lib.manager.aggregation.datatype.OntStateChange;
 import org.openbase.bco.ontology.lib.utility.ontology.OntModelHandler;
 import org.openbase.bco.ontology.lib.manager.tbox.TBoxVerification;
 import org.openbase.bco.ontology.lib.utility.StringModifier;

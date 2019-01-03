@@ -27,8 +27,6 @@ import org.openbase.bco.ontology.lib.system.config.OntConfig;
 import org.openbase.bco.ontology.lib.system.config.OntConfig.MethodRegEx;
 import org.openbase.bco.ontology.lib.system.config.OntConfig.OntExpr;
 import org.openbase.bco.ontology.lib.system.config.OntConfig.XsdType;
-import org.openbase.jul.exception.MultiException;
-import org.openbase.jul.exception.MultiException.ExceptionStack;
 import org.openbase.jul.exception.NotAvailableException;
 import org.openbase.jul.processing.StringProcessor;
 import org.slf4j.Logger;

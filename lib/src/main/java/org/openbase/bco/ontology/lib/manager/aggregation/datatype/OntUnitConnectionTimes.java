@@ -23,12 +23,9 @@ package org.openbase.bco.ontology.lib.manager.aggregation.datatype;
  */
 
 import org.openbase.bco.ontology.lib.utility.Preconditions;
-import org.openbase.jul.exception.MultiException;
-import org.openbase.jul.exception.MultiException.ExceptionStack;
 import org.openbase.jul.exception.NotAvailableException;
 
 import java.util.HashMap;
-import java.util.Optional;
 
 /**
  * This class is used to describe and store the time aspect of the connection between units and BCO system or rather the

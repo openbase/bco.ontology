@@ -49,7 +49,6 @@ import org.openbase.jul.exception.NotAvailableException;
 
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 

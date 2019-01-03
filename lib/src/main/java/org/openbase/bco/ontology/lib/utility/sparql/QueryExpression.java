@@ -28,7 +28,6 @@ import org.openbase.bco.ontology.lib.system.config.OntConfig.OntInst;
 import org.openbase.bco.ontology.lib.system.config.OntConfig.OntProp;
 import org.openbase.bco.ontology.lib.system.config.OntConfig.OntExpr;
 import org.openbase.bco.ontology.lib.system.config.OntConfig.SparqlVariable;
-import org.openbase.bco.ontology.lib.utility.StringModifier;
 
 import java.util.ArrayList;
 import java.util.List;

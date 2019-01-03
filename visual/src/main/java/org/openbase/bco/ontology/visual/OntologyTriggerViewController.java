@@ -30,8 +30,6 @@ import org.openbase.bco.ontology.lib.trigger.Trigger;
 import org.openbase.bco.ontology.lib.trigger.TriggerFactory;
 import org.openbase.jul.exception.CouldNotPerformException;
 import org.openbase.jul.exception.printer.ExceptionPrinter;
-import org.openbase.jul.pattern.Observable;
-import org.openbase.jul.pattern.provider.DataProvider;
 import org.openbase.jul.visual.javafx.control.AbstractFXController;
 import org.slf4j.LoggerFactory;
 import org.openbase.type.domotic.ontology.TriggerConfigType.TriggerConfig;

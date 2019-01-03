@@ -23,10 +23,8 @@ package org.openbase.bco.ontology.lib.manager.aggregation;
  */
 
 import org.openbase.bco.ontology.lib.commun.web.SparqlHttp;
-import org.openbase.bco.ontology.lib.manager.aggregation.datatype.OntObservation;
 import org.openbase.bco.ontology.lib.manager.aggregation.datatype.OntProviderServices;
 import org.openbase.bco.ontology.lib.manager.aggregation.datatype.OntStateChange;
-import org.openbase.bco.ontology.lib.manager.aggregation.datatype.OntStateChangeBuf;
 import org.openbase.bco.ontology.lib.manager.aggregation.datatype.OntUnitConnectionTimes;
 import org.openbase.bco.ontology.lib.manager.aggregation.datatype.OntUnits;
 import org.openbase.bco.ontology.lib.utility.StringModifier;
@@ -40,8 +38,6 @@ import org.openbase.bco.ontology.lib.system.config.OntConfig.XsdType;
 import org.openbase.bco.ontology.lib.system.config.OntConfig.Period;
 import org.openbase.jul.exception.CouldNotPerformException;
 import org.openbase.jul.exception.InitializationException;
-import org.openbase.jul.exception.MultiException;
-import org.openbase.jul.exception.NotAvailableException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

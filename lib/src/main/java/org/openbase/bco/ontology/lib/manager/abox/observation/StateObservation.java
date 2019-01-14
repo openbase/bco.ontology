@@ -200,7 +200,7 @@ public class StateObservation<T> extends StateSources {
                 for (final String stateValue : nodeObject.getStateValues()) {
                     // if value is literal (continuous value like hsb), the input string is correct.
                     // Otherwise (resource/discrete value ike ON, OFF, OPEN, ...) the naming convention of the ontology is performed
-                    final String stateValueName = (nodeObject.isLiteral()) ? stateValue : StringModifier.firstCharToLowerCase(StringModifier.getCamelCaseName(stateValue));
+                    final String stateValueName = (nodeObject.isLiteral()) ? stateValue : StringModifier.firstCharToLowerCase(StringModifier.getPascalcaseName(stateValue));
                     insert.add(new RdfTriple(obsInstName, OntProp.STATE_VALUE.getName(), stateValueName));
                 }
             }

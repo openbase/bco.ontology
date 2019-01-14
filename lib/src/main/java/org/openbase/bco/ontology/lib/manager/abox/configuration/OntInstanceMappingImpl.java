@@ -100,13 +100,13 @@ public class OntInstanceMappingImpl implements OntInstanceMapping {
                 try {
                     switch (unitConfig.getUnitType()) {
                         case LOCATION:
-                            unitTypeName = StringModifier.getCamelCaseName(unitConfig.getLocationConfig().getType().name());
+                            unitTypeName = StringModifier.getPascalcaseName(unitConfig.getLocationConfig().getType().name());
                             break;
                         case CONNECTION:
-                            unitTypeName = StringModifier.getCamelCaseName(unitConfig.getConnectionConfig().getType().name());
+                            unitTypeName = StringModifier.getPascalcaseName(unitConfig.getConnectionConfig().getType().name());
                             break;
                         default:
-                            unitTypeName = StringModifier.getCamelCaseName(unitConfig.getUnitType().name());
+                            unitTypeName = StringModifier.getPascalcaseName(unitConfig.getUnitType().name());
                     }
 
                     triples.add(new RdfTriple(unitConfig.getId(), OntExpr.IS_A.getName(), unitTypeName));
@@ -200,7 +200,7 @@ public class OntInstanceMappingImpl implements OntInstanceMapping {
             }
             try {
                 for (final Object stateValue : Services.getServiceStateEnumValues(serviceType).toArray()) {
-                    final String stateValueName = StringModifier.firstCharToLowerCase(StringModifier.getCamelCaseName(stateValue.toString()));
+                    final String stateValueName = StringModifier.firstCharToLowerCase(StringModifier.getPascalcaseName(stateValue.toString()));
 
                     if (stateValueName.equalsIgnoreCase("unknown")) {
                         continue;

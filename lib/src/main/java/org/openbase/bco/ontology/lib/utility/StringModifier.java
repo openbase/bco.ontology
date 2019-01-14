@@ -130,7 +130,7 @@ public interface StringModifier {
     static String getServiceTypeName(final ServiceType serviceType) throws NotAvailableException {
         Preconditions.checkNotNull(serviceType, "Input service type couldn't transformed, cause null!");
 
-        return StringProcessor.transformUpperCaseToCamelCase(serviceType.name());
+        return StringProcessor.transformUpperCaseToPascalCase(serviceType.name());
     }
 
     /**
@@ -143,7 +143,7 @@ public interface StringModifier {
     static String getUnitTypeName(final UnitType unitType) throws NotAvailableException {
         Preconditions.checkNotNull(unitType, "Input unit type couldn't transformed, cause null!");
 
-        return StringProcessor.transformUpperCaseToCamelCase(unitType.name());
+        return StringProcessor.transformUpperCaseToPascalCase(unitType.name());
     }
 
     /**
@@ -153,10 +153,10 @@ public interface StringModifier {
      * @return the input string in camel case.
      * @throws NotAvailableException is thrown in case the input is null.
      */
-    static String getCamelCaseName(final String input) throws NotAvailableException {
+    static String getPascalcaseName(final String input) throws NotAvailableException {
         Preconditions.checkNotNull(input, "Input string couldn't transformed, cause null!");
 
-        return StringProcessor.transformUpperCaseToCamelCase(input);
+        return StringProcessor.transformUpperCaseToPascalCase(input);
     }
 
     /**

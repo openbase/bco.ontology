@@ -128,7 +128,7 @@ public class OntClassMappingImpl implements OntClassMapping {
     private RdfTriple getUnitTypeClass(final UnitType unitType) throws NotAvailableException {
 
         final RdfTriple triple;
-        final String unitTypeName = StringModifier.getCamelCaseName(unitType.name());
+        final String unitTypeName = StringModifier.getPascalcaseName(unitType.name());
 
         if (UnitConfigProcessor.isDalUnit(unitType)) {
             triple = new RdfTriple(unitTypeName, OntExpr.SUB_CLASS_OF.getName(), OntCl.DAL_UNIT.getName());
@@ -156,7 +156,7 @@ public class OntClassMappingImpl implements OntClassMapping {
                         continue;
                     }
 
-                    final String locationTypeName = StringModifier.getCamelCaseName(locationType.name());
+                    final String locationTypeName = StringModifier.getPascalcaseName(locationType.name());
                     triples.add(new RdfTriple(locationTypeName, OntExpr.SUB_CLASS_OF.getName(), OntCl.LOCATION.getName()));
                 } catch (NotAvailableException ex) {
                     exceptionStack = MultiException.push(this, ex, exceptionStack);
@@ -170,7 +170,7 @@ public class OntClassMappingImpl implements OntClassMapping {
             }
         } else {
             try {
-                final String locationTypeName = StringModifier.getCamelCaseName(unitConfig.getConnectionConfig().getType().name());
+                final String locationTypeName = StringModifier.getPascalcaseName(unitConfig.getConnectionConfig().getType().name());
                 triples.add(new RdfTriple(locationTypeName, OntExpr.SUB_CLASS_OF.getName(), OntCl.LOCATION.getName()));
             } catch (NotAvailableException ex) {
                 ExceptionPrinter.printHistory(ex, LOGGER, LogLevel.ERROR);
@@ -193,7 +193,7 @@ public class OntClassMappingImpl implements OntClassMapping {
                         continue;
                     }
 
-                    final String connectionTypeName = StringModifier.getCamelCaseName(connectionType.name());
+                    final String connectionTypeName = StringModifier.getPascalcaseName(connectionType.name());
                     triples.add(new RdfTriple(connectionTypeName, OntExpr.SUB_CLASS_OF.getName(), OntCl.CONNECTION.getName()));
                 } catch (NotAvailableException ex) {
                     exceptionStack = MultiException.push(this, ex, exceptionStack);
@@ -207,7 +207,7 @@ public class OntClassMappingImpl implements OntClassMapping {
             }
         } else {
             try {
-                final String connectionTypeName = StringModifier.getCamelCaseName(unitConfig.getConnectionConfig().getType().name());
+                final String connectionTypeName = StringModifier.getPascalcaseName(unitConfig.getConnectionConfig().getType().name());
                 triples.add(new RdfTriple(connectionTypeName, OntExpr.SUB_CLASS_OF.getName(), OntCl.CONNECTION.getName()));
             } catch (NotAvailableException ex) {
                 ExceptionPrinter.printHistory(ex, LOGGER, LogLevel.ERROR);

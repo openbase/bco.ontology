@@ -151,7 +151,7 @@ public class TriggerImpl implements Trigger {
                 if (ontologyRemote.match(triggerConfig.getQuery())) {
                     activationObservable.notifyObservers(ActivationState.State.ACTIVE);
                 } else {
-                    activationObservable.notifyObservers(ActivationState.State.DEACTIVE);
+                    activationObservable.notifyObservers(ActivationState.State.INACTIVE);
                 }
             } catch (IOException ex) {
                 ExceptionPrinter.printHistory("Could not send query to server. Waiting of notification from ServerConnection", ex, LOGGER, LogLevel.WARN);

@@ -172,7 +172,7 @@ public final class OntologyManagerController implements Launchable<Void>, VoidIn
 
     private void startUpdateObserver(final UnitRegistryData unitRegistryData) {
 
-        registryDiff.diff(unitRegistryData.getUnitGroupUnitConfigList());
+        registryDiff.diffMessages(unitRegistryData.getUnitGroupUnitConfigList());
 
         IdentifiableMessageMap<String, UnitConfig, UnitConfig.Builder> identifiableNewMessageMap = registryDiff.getNewMessageMap();
         IdentifiableMessageMap<String, UnitConfig, UnitConfig.Builder> identifiableUpdatedMessageMap = registryDiff.getUpdatedMessageMap();

@@ -49,7 +49,7 @@ public interface ThreadUtility {
         if (timeout != 0) {
             Timeout timeoutThread = new Timeout(timeout) {
                 @Override
-                public void expired() throws InterruptedException {
+                public void expired() {
                     if (!future.isDone()) {
                         future.cancel(true);
                     }

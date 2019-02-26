@@ -86,7 +86,7 @@ public class OntologyTriggerViewController extends AbstractFXController {
 
     @Override
     public void updateDynamicContent() {
-        System.out.println("call updateDynamicContent");
+        // do something?
     }
 
     public void setup(final String description, final TriggerConfig triggerConfig) {

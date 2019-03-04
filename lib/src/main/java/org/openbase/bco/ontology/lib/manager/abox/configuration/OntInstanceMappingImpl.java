@@ -100,10 +100,10 @@ public class OntInstanceMappingImpl implements OntInstanceMapping {
                 try {
                     switch (unitConfig.getUnitType()) {
                         case LOCATION:
-                            unitTypeName = StringModifier.getPascalcaseName(unitConfig.getLocationConfig().getType().name());
+                            unitTypeName = StringModifier.getPascalcaseName(unitConfig.getLocationConfig().getLocationType().name());
                             break;
                         case CONNECTION:
-                            unitTypeName = StringModifier.getPascalcaseName(unitConfig.getConnectionConfig().getType().name());
+                            unitTypeName = StringModifier.getPascalcaseName(unitConfig.getConnectionConfig().getConnectionType().name());
                             break;
                         default:
                             unitTypeName = StringModifier.getPascalcaseName(unitConfig.getUnitType().name());

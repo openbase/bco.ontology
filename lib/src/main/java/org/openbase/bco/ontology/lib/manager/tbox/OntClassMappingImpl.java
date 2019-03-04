@@ -170,7 +170,7 @@ public class OntClassMappingImpl implements OntClassMapping {
             }
         } else {
             try {
-                final String locationTypeName = StringModifier.getPascalcaseName(unitConfig.getConnectionConfig().getType().name());
+                final String locationTypeName = StringModifier.getPascalcaseName(unitConfig.getConnectionConfig().getConnectionType().name());
                 triples.add(new RdfTriple(locationTypeName, OntExpr.SUB_CLASS_OF.getName(), OntCl.LOCATION.getName()));
             } catch (NotAvailableException ex) {
                 ExceptionPrinter.printHistory(ex, LOGGER, LogLevel.ERROR);
@@ -207,7 +207,7 @@ public class OntClassMappingImpl implements OntClassMapping {
             }
         } else {
             try {
-                final String connectionTypeName = StringModifier.getPascalcaseName(unitConfig.getConnectionConfig().getType().name());
+                final String connectionTypeName = StringModifier.getPascalcaseName(unitConfig.getConnectionConfig().getConnectionType().name());
                 triples.add(new RdfTriple(connectionTypeName, OntExpr.SUB_CLASS_OF.getName(), OntCl.CONNECTION.getName()));
             } catch (NotAvailableException ex) {
                 ExceptionPrinter.printHistory(ex, LOGGER, LogLevel.ERROR);

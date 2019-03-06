@@ -49,7 +49,7 @@
                     <programs>
                         <program>
                             <mainClass>org.openbase.bco.ontology.visual.OntologyTestAppLoader</mainClass>
-                            <id>bco-ontology-trigger-test</id>
+                            <id>bco-manager-ontology-trigger-test</id>
                             <platforms>
                                 <platform>unix</platform>
                             </platforms>

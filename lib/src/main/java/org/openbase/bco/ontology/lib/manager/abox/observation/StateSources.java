@@ -472,9 +472,6 @@ public class StateSources {
                     add(illuminanceStateVal);
                 }}, true));
                 break;
-            case UNKNOWN:
-                LOGGER.warn("Dropped illuminance state value, cause dataUnit is UNKNOWN.");
-                return null;
             default:
                 LOGGER.warn("DataUnit of intensity state could not be detected. Please add " + dataUnit + " to ontologyManager implementation.");
                 return null;

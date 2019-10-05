@@ -336,9 +336,9 @@ public class StateSources {
                 addAll(Arrays.asList(hue, saturation, brightness));
             }}, true));
         } else if (colorState.getColor().hasRgbColor()) {
-            final int red = colorState.getColor().getRgbColor().getRed();
-            final int green = colorState.getColor().getRgbColor().getGreen();
-            final int blue = colorState.getColor().getRgbColor().getBlue();
+            final int red = ((int) (colorState.getColor().getRgbColor().getRed() * 255));
+            final int green = ((int) (colorState.getColor().getRgbColor().getGreen() * 255));
+            final int blue = ((int) (colorState.getColor().getRgbColor().getBlue() * 255));
 
             final float[] hsb = Color.RGBtoHSB(red, green, blue, null);
             final String hue = "\"" + hsb[0] + "\"^^NS:Hue";

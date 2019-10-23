@@ -132,7 +132,7 @@ public class StateSources {
                 return powerStateSources((PowerState) stateObject);
             case PRESENCE_STATE_SERVICE:
                 return presenceStateSources((PresenceState) stateObject);
-            case RFID_STATE_SERVICE:
+            case R_F_I_D_STATE_SERVICE:
                 return rfidStateSources((RFIDState) stateObject);
             case SMOKE_ALARM_STATE_SERVICE:
                 return null;

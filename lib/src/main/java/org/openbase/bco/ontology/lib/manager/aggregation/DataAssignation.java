@@ -152,7 +152,7 @@ public class DataAssignation extends DataAggregation {
                 case PRESENCE_STATE_SERVICE:
                     triples.addAll(aggregateDiscreteStateValue(ontStateChanges));
                     break;
-                case RFID_STATE_SERVICE:
+                case R_F_I_D_STATE_SERVICE:
 //                    triples.addAll(rfidStateValue(serviceStateChangeMap.get(serviceType)));
                     break;
                 case SMOKE_ALARM_STATE_SERVICE:

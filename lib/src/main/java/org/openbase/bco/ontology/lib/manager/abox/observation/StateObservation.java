@@ -121,7 +121,7 @@ public class StateObservation<T> extends StateSources {
             final String serviceTypeName = StringModifier.getServiceTypeNameFromStateMethodName(getGenericStateService.getName());
             final ServiceType serviceType = OntConfig.SERVICE_NAME_MAP.get(serviceTypeName);
 
-            final RecurrenceEventFilter recurrenceEventFilter = new RecurrenceEventFilter(200) {
+            final RecurrenceEventFilter recurrenceEventFilter = new RecurrenceEventFilter<Void>(200) {
                 @Override
                 public void relay() {
                     serviceStateChangeProcessing(providerServiceObj, serviceType, serviceTypeName);

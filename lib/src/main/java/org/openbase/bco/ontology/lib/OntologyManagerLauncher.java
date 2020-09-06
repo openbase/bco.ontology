@@ -69,7 +69,7 @@ public class OntologyManagerLauncher extends AbstractLauncher<OntologyManagerCon
      */
     public static void main(final String... args) throws Throwable {
         BCO.printLogo();
-        main(args, OntologyManager.class, OntologyManagerLauncher.class);
+        main(BCO.class, OntologyManager.class, args, OntologyManagerLauncher.class);
     }
 
 }

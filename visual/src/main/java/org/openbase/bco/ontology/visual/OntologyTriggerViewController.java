@@ -75,7 +75,7 @@ public class OntologyTriggerViewController extends AbstractFXController {
             case ACTIVE:
                 triggerStateColorPane.setStyle("-fx-background-color: #178020");
                 break;
-            case DEACTIVE:
+            case INACTIVE:
                 triggerStateColorPane.setStyle("-fx-background-color: #807666");
                 break;
             default:

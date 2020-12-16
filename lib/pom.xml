@@ -27,10 +27,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>3.8.1</version>
                 <configuration>
-                    <source>${maven.compiler.source}</source>
-                    <target>${maven.compiler.target}</target>
+                    <source>${java.source.version}</source>
+                    <target>${java.target.version}</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -112,7 +112,7 @@
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>${plugin.pmd.version}</version>
                 <configuration>
-                    <targetJdk>${maven.compiler.target}</targetJdk>
+                    <targetJdk>${java.target.version}</targetJdk>
                     <rulesets>
                         <ruleset>${project.basedir}/codecheck/pmd-rules.xml</ruleset>
                     </rulesets>
@@ -293,7 +293,7 @@
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>${plugin.pmd.version}</version>
                 <configuration>
-                    <targetJdk>${maven.compiler.target}</targetJdk>
+                    <targetJdk>${java.target.version}</targetJdk>
                     <rulesets>
                         <ruleset>${project.basedir}/codecheck/pmd-rules.xml</ruleset>
                     </rulesets>

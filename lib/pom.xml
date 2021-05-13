@@ -18,7 +18,7 @@
     <licenses>
         <license>
             <name>LGPLv3</name>
-            <url>http://www.gnu.org/licenses/lgpl.html</url>
+            <url>https://www.gnu.org/licenses/lgpl.html</url>
         </license>
     </licenses>
 
@@ -165,7 +165,7 @@
     <pluginRepositories>
         <pluginRepository>
             <id>onejar-maven-plugin.googlecode.com</id>
-            <url>http://onejar-maven-plugin.googlecode.com/svn/mavenrepo</url>
+            <url>https://onejar-maven-plugin.googlecode.com/svn/mavenrepo</url>
         </pluginRepository>
     </pluginRepositories>
 
@@ -262,7 +262,7 @@
     <repositories>
         <repository>
             <id>org.topbraid</id>
-            <url>http://topquadrant.com/repository/spin</url>
+            <url>https://topquadrant.com/repository/spin</url>
         </repository>
     </repositories>
 
